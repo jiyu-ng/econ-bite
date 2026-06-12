@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('posts')).sort(
+  (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
+);
+---
+
+<BaseLayout
+  title="경제한입 🍱 — 하루 한입, 쉬워지는 경제"
+  description="금리·물가·환율부터 투자 기초까지. 어려운 경제를 한입 크기로 잘라 쉽게 정리하는 사이트."
+>
+  <!-- 상단 광고 슬롯 -->
+  <div class="ad-slot">광고 영역 (AdSense 승인 후 노출)</div>
+
+  <ul class="card-list">
+    {
+      posts.map((post) => (
+        <li>
+          <a class="card" href={`/posts/${post.id}/`}>
+            <span class="category">{post.data.category}</span>
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
