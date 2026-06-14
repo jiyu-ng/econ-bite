@@ -1,5 +1,5 @@
 #!/bin/bash
-# 경제한입 자동 글쓰기 — launchd가 2시간마다(9~19시 KST) 실행.
+# 경제한입 자동 글쓰기 — launchd가 하루 2회(점심 12시·저녁 18시 KST) 실행.
 # claude headless로 새 글 1편 작성 + PR 생성, 결과를 텔레그램 DM으로 보고.
 set -uo pipefail
 
