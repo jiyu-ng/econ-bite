@@ -7,6 +7,11 @@ const posts = (await getCollection('posts')).sort(
   (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
 );
 
+const CATEGORY_ORDER = ['기초 개념', '지표 읽기', '투자', '생활 경제', '경제 뉴스'];
+const categories = CATEGORY_ORDER.filter((c) =>
+  posts.some((p) => p.data.category === c)
+);
+
 const siteUrl = new URL('/', Astro.site).href;
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -27,6 +32,13 @@ const jsonLd = {
     slot="head"
     set:html={JSON.stringify(jsonLd)}
   />
+  <!-- 카테고리 네비게이션 -->
+  <nav class="cat-nav" aria-label="카테고리">
+    {categories.map((c) => (
+      <a class="cat-chip" href={`/category/${c}/`}>{c}</a>
+    ))}
+  </nav>
+
   <!-- 상단 광고 슬롯 -->
   <div class="ad-slot">광고 영역 (AdSense 승인 후 노출)</div>
 

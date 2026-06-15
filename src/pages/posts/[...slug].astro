@@ -61,7 +61,7 @@ const jsonLd = {
     set:html={JSON.stringify(jsonLd)}
   />
   <article class="post">
-    <span class="category">{post.data.category}</span>
+    <a class="category" href={`/category/${post.data.category}/`}>{post.data.category}</a>
     <h1>{post.data.title}</h1>
     <p class="meta">{dateLabel}</p>
 

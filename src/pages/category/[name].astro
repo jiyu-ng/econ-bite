@@ -1,0 +1,82 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_NAME } from '../../consts';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const categories = [...new Set(posts.map((p) => p.data.category))];
+  return categories.map((category) => ({
+    params: { name: category },
+    props: {
+      category,
+      posts: posts
+        .filter((p) => p.data.category === category)
+        .sort((a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()),
+    },
+  }));
+}
+
+const { category, posts } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `${category} — ${SITE_NAME}`,
+  description: `${SITE_NAME}의 ${category} 분야 글 목록`,
+  url: canonical.href,
+  inLanguage: 'ko-KR',
+  publisher: { '@type': 'Organization', name: SITE_NAME },
+};
+---
+
+<BaseLayout
+  title={`${category} — 경제한입`}
+  description={`경제한입의 ${category} 분야 글을 모아봤습니다. 어려운 경제를 한입 크기로 쉽게 정리합니다.`}
+>
+  <script
+    type="application/ld+json"
+    slot="head"
+    set:html={JSON.stringify(jsonLd)}
+  />
+
+  <div class="category-hero">
+    <span class="category">{category}</span>
+    <h1>{category}</h1>
+    <p class="count">글 {posts.length}편</p>
+  </div>
+
+  <ul class="card-list">
+    {posts.map((post) => (
+      <li>
+        <a class="card" href={`/posts/${post.id}/`}>
+          <span class="category">{post.data.category}</span>
+          <h2>{post.data.title}</h2>
+          <p>{post.data.description}</p>
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <a class="back-link" href="/">← 전체 글 보기</a>
+</BaseLayout>
+
+<style>
+  .category-hero {
+    margin: 28px 0 4px;
+    text-align: center;
+  }
+  .category-hero h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 10px 0 4px;
+    color: var(--ink);
+  }
+  .count {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+</style>
