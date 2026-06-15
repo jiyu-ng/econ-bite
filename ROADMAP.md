@@ -10,7 +10,7 @@
 - [ ] 글 간 내부 링크 / "관련 글" 섹션 (체류시간·색인↑)
 - [ ] 카테고리 페이지 (`/category/[name]`)
 - [ ] 태그 페이지 (`/tags/[tag]`)
-- [ ] RSS 피드 (`@astrojs/rss`)
+- [x] RSS 피드 (`@astrojs/rss`)
 - [ ] BreadcrumbList JSON-LD (검색결과 경로 표시)
 - [ ] 글별 OG 이미지 자동 생성
 
@@ -23,3 +23,4 @@
 
 ## 완료
 - [x] SEO 기반: sitemap · robots.txt · Article/WebSite JSON-LD · AdSense/GSC 배선 (PR #19)
+- [x] RSS 피드: `@astrojs/rss` + autodiscovery `<link>` 태그 (PR #?)
