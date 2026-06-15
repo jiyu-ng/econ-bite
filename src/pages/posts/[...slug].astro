@@ -7,11 +7,11 @@ export async function getStaticPaths() {
   const posts = await getCollection('posts');
   return posts.map((post) => ({
     params: { slug: post.id },
-    props: { post },
+    props: { post, allPosts: posts },
   }));
 }
 
-const { post } = Astro.props;
+const { post, allPosts } = Astro.props;
 const { Content } = await render(post);
 
 const published = post.data.publishedDate;
@@ -22,6 +22,17 @@ const dateLabel = published.toLocaleDateString('ko-KR', {
 });
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
+
+// 관련 글: 같은 카테고리 우선, 최신순, 현재 글 제외, 최대 3개
+const sameCategory = allPosts
+  .filter((p) => p.id !== post.id && p.data.category === post.data.category)
+  .sort((a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime());
+
+const others = allPosts
+  .filter((p) => p.id !== post.id && p.data.category !== post.data.category)
+  .sort((a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime());
+
+const relatedPosts = [...sameCategory, ...others].slice(0, 3);
 
 // 검색결과 리치 표시용 구조화 데이터 (schema.org Article)
 const jsonLd = {
@@ -59,6 +70,23 @@ const jsonLd = {
     <!-- 본문 하단 광고 슬롯 -->
     <div class="ad-slot">광고 영역 (AdSense 승인 후 노출)</div>
   </article>
+
+  {relatedPosts.length > 0 && (
+    <section class="related-posts">
+      <h2 class="related-posts__heading">관련 글</h2>
+      <ul class="card-list">
+        {relatedPosts.map((p) => (
+          <li>
+            <a class="card" href={`/posts/${p.id}/`}>
+              <span class="category">{p.data.category}</span>
+              <h3>{p.data.title}</h3>
+              <p>{p.data.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 
   <a class="back-link" href="/">← 목록으로</a>
 </BaseLayout>
