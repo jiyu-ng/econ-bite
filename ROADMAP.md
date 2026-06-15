@@ -16,7 +16,7 @@
 
 ## 사용자 경험 · 성능
 - [ ] 글 목록 검색/필터
-- [ ] 404 페이지
+- [x] 404 페이지
 - [ ] 다크모드
 - [ ] 폰트 로딩 최적화 (jsDelivr CDN → self-host 검토) — preconnect는 적용됨
 - [ ] 접근성 점검 — 1차 완료(본문 바로가기·:focus-visible·prefers-reduced-motion). 남음: 색 대비·aria·시맨틱 태그
