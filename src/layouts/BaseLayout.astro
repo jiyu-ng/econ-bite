@@ -44,6 +44,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
+    <link rel="alternate" type="application/rss+xml" title={SITE_NAME} href="/rss.xml" />
+
     <!-- 한국어 가독성 폰트 -->
     <link
       rel="stylesheet"
