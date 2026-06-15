@@ -1,0 +1,97 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_NAME } from '../../consts';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const tagMap = new Map<string, typeof posts>();
+  for (const post of posts) {
+    for (const tag of post.data.tags ?? []) {
+      if (!tagMap.has(tag)) tagMap.set(tag, []);
+      tagMap.get(tag)!.push(post);
+    }
+  }
+  return [...tagMap.entries()].map(([tag, tagPosts]) => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: tagPosts.sort(
+        (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
+      ),
+    },
+  }));
+}
+
+const { tag, posts } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `#${tag} — ${SITE_NAME}`,
+  description: `${SITE_NAME}의 "${tag}" 태그 글 목록`,
+  url: canonical.href,
+  inLanguage: 'ko-KR',
+  publisher: { '@type': 'Organization', name: SITE_NAME },
+};
+---
+
+<BaseLayout
+  title={`#${tag} — 경제한입`}
+  description={`경제한입에서 "${tag}" 태그가 붙은 글을 모았습니다. 어려운 경제를 한입 크기로 쉽게 정리합니다.`}
+>
+  <script
+    type="application/ld+json"
+    slot="head"
+    set:html={JSON.stringify(jsonLd)}
+  />
+
+  <div class="tag-hero">
+    <span class="tag-badge">#{tag}</span>
+    <h1>{tag}</h1>
+    <p class="count">글 {posts.length}편</p>
+  </div>
+
+  <ul class="card-list">
+    {posts.map((post) => (
+      <li>
+        <a class="card" href={`/posts/${post.id}/`}>
+          <span class="category">{post.data.category}</span>
+          <h2>{post.data.title}</h2>
+          <p>{post.data.description}</p>
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <a class="back-link" href="/">← 전체 글 보기</a>
+</BaseLayout>
+
+<style>
+  .tag-hero {
+    margin: 28px 0 4px;
+    text-align: center;
+  }
+  .tag-badge {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 14px;
+    border-radius: 999px;
+  }
+  .tag-hero h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 10px 0 4px;
+    color: var(--ink);
+  }
+  .count {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+</style>

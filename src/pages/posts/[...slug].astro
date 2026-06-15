@@ -72,6 +72,14 @@ const jsonLd = {
 
     <Content />
 
+    {post.data.tags && post.data.tags.length > 0 && (
+      <div class="tag-list" role="list" aria-label="태그">
+        {post.data.tags.map((tag: string) => (
+          <a class="tag-chip" href={`/tags/${tag}/`} role="listitem">#{tag}</a>
+        ))}
+      </div>
+    )}
+
     <!-- 본문 하단 광고 슬롯 -->
     <div class="ad-slot">광고 영역 (AdSense 승인 후 노출)</div>
   </article>
