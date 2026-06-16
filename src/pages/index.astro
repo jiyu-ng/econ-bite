@@ -50,6 +50,9 @@ const jsonLd = {
             <span class="category">{post.data.category}</span>
             <h2>{post.data.title}</h2>
             <p>{post.data.description}</p>
+            <time class="card-date" datetime={post.data.publishedDate.toISOString().slice(0, 10)}>
+              {post.data.publishedDate.toLocaleDateString('ko-KR')}
+            </time>
           </a>
         </li>
       ))
