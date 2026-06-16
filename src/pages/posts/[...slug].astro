@@ -60,10 +60,15 @@ const jsonLd = {
     slot="head"
     set:html={JSON.stringify(jsonLd)}
   />
+  {/* Open Graph article 메타 (소셜 공유·검색 리치) */}
+  <meta property="article:published_time" content={published.toISOString()} slot="head" />
+  <meta property="article:section" content={post.data.category} slot="head" />
   <article class="post">
     <a class="category" href={`/category/${post.data.category}/`}>{post.data.category}</a>
     <h1>{post.data.title}</h1>
-    <p class="meta">{dateLabel}</p>
+    <p class="meta">
+      <time datetime={published.toISOString().slice(0, 10)}>{dateLabel}</time>
+    </p>
 
     <Content />
 
