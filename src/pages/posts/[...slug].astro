@@ -22,6 +22,7 @@ const dateLabel = published.toLocaleDateString('ko-KR', {
 });
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const siteUrl = new URL('/', Astro.site).href;
 
 // 관련 글: 같은 카테고리 우선, 최신순, 현재 글 제외, 최대 3개
 const sameCategory = allPosts
@@ -34,19 +35,35 @@ const others = allPosts
 
 const relatedPosts = [...sameCategory, ...others].slice(0, 3);
 
-// 검색결과 리치 표시용 구조화 데이터 (schema.org Article)
+// 카테고리명 → URL 슬러그 변환 (한글 포함 URL 안전)
+const categorySlug = encodeURIComponent(post.data.category);
+const categoryUrl = new URL(`/category/${categorySlug}/`, Astro.site).href;
+
+// 검색결과 리치 표시용 구조화 데이터: Article + BreadcrumbList (@graph)
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: post.data.title,
-  description: post.data.description,
-  datePublished: published.toISOString(),
-  inLanguage: 'ko-KR',
-  articleSection: post.data.category,
-  keywords: post.data.tags?.join(', ') || undefined,
-  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical.href },
-  author: { '@type': 'Organization', name: SITE_NAME },
-  publisher: { '@type': 'Organization', name: SITE_NAME },
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.data.title,
+      description: post.data.description,
+      datePublished: published.toISOString(),
+      inLanguage: 'ko-KR',
+      articleSection: post.data.category,
+      keywords: post.data.tags?.join(', ') || undefined,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': canonical.href },
+      author: { '@type': 'Organization', name: SITE_NAME },
+      publisher: { '@type': 'Organization', name: SITE_NAME },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: SITE_NAME, item: siteUrl },
+        { '@type': 'ListItem', position: 2, name: post.data.category, item: categoryUrl },
+        { '@type': 'ListItem', position: 3, name: post.data.title, item: canonical.href },
+      ],
+    },
+  ],
 };
 ---
 
@@ -63,6 +80,13 @@ const jsonLd = {
   {/* Open Graph article 메타 (소셜 공유·검색 리치) */}
   <meta property="article:published_time" content={published.toISOString()} slot="head" />
   <meta property="article:section" content={post.data.category} slot="head" />
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <ol>
+      <li><a href="/">{SITE_NAME}</a></li>
+      <li><span>{post.data.category}</span></li>
+      <li><span>{post.data.title}</span></li>
+    </ol>
+  </nav>
   <article class="post">
     <a class="category" href={`/category/${post.data.category}/`}>{post.data.category}</a>
     <h1>{post.data.title}</h1>

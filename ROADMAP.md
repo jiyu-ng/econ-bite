@@ -11,7 +11,7 @@
 - [x] 카테고리 페이지 (`/category/[name]`)
 - [x] 태그 페이지 (`/tags/[tag]`)
 - [x] RSS 피드 (`@astrojs/rss`)
-- [ ] BreadcrumbList JSON-LD (검색결과 경로 표시)
+- [x] BreadcrumbList JSON-LD (검색결과 경로 표시)
 - [ ] 글별 OG 이미지 자동 생성
 
 ## 사용자 경험 · 성능
