@@ -18,6 +18,46 @@ html {
   scroll-behavior: smooth;
 }
 
+/* 접근성: 본문 바로가기 (키보드·스크린리더 사용자, 평소엔 화면 밖) */
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -56px;
+  z-index: 100;
+  background: var(--accent);
+  color: #fff;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 8px;
+  text-decoration: none;
+}
+
+/* 접근성: 키보드 포커스 가시화 (마우스 클릭엔 영향 없음) */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 접근성: 모션 최소화 선호 존중 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
 body {
   margin: 0;
   background: var(--bg);
