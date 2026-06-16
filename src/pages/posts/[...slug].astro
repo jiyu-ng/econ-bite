@@ -21,6 +21,10 @@ const dateLabel = published.toLocaleDateString('ko-KR', {
   day: 'numeric',
 });
 
+// 읽기 시간 추정 (한국어 평균 ~500자/분, 마크다운 기호 제거 후 글자 수 기준)
+const plainText = (post.body ?? '').replace(/[#>*`|_\-\[\]()!]/g, '');
+const readingMinutes = Math.max(1, Math.round([...plainText].length / 500));
+
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const siteUrl = new URL('/', Astro.site).href;
 
@@ -92,6 +96,7 @@ const jsonLd = {
     <h1>{post.data.title}</h1>
     <p class="meta">
       <time datetime={published.toISOString().slice(0, 10)}>{dateLabel}</time>
+      <span class="reading-time"> · 📖 약 {readingMinutes}분</span>
     </p>
 
     <Content />
