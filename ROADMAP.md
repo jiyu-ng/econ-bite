@@ -9,7 +9,7 @@
 - [ ] Search Console 등록 + `GSC_VERIFICATION` 채우고 sitemap 제출 (← 지유)
 - [x] 글 간 내부 링크 / "관련 글" 섹션 (체류시간·색인↑)
 - [x] 카테고리 페이지 (`/category/[name]`)
-- [ ] 태그 페이지 (`/tags/[tag]`)
+- [x] 태그 페이지 (`/tags/[tag]`)
 - [x] RSS 피드 (`@astrojs/rss`)
 - [ ] BreadcrumbList JSON-LD (검색결과 경로 표시)
 - [ ] 글별 OG 이미지 자동 생성
