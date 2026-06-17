@@ -1,0 +1,8 @@
+# Cloudflare Pages 보안 응답 헤더 (정적 호스팅 시 자동 적용)
+# 렌더링·폰트·애드센스에 영향 주는 CSP는 의도적으로 제외 (호환성 우선).
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  X-XSS-Protection: 1; mode=block
