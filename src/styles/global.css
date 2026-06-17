@@ -276,6 +276,61 @@ a:hover {
   font-size: 0.9rem;
 }
 
+/* 이전/다음 글 내비 */
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 28px 0 8px;
+}
+.post-nav__item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  transition: border-color 0.12s ease;
+}
+.post-nav__next {
+  text-align: right;
+  align-items: flex-end;
+}
+.post-nav__empty {
+  background: transparent;
+  border: none;
+}
+.post-nav__dir {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.post-nav__title {
+  font-size: 0.92rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+a.post-nav__item:hover {
+  border-color: var(--accent);
+  text-decoration: none;
+}
+a.post-nav__item:hover .post-nav__title {
+  color: var(--accent);
+}
+@media (max-width: 560px) {
+  .post-nav {
+    grid-template-columns: 1fr;
+  }
+  .post-nav__next {
+    text-align: left;
+    align-items: flex-start;
+  }
+  .post-nav__empty {
+    display: none;
+  }
+}
+
 /* 카테고리 네비게이션 */
 .cat-nav {
   display: flex;
