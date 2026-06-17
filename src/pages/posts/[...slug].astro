@@ -39,6 +39,14 @@ const others = allPosts
 
 const relatedPosts = [...sameCategory, ...others].slice(0, 3);
 
+// 이전/다음 글: 전체 글을 발행일 최신순으로 줄세워 양옆 글 찾기 (순차 읽기 + 내부 링크)
+const chrono = [...allPosts].sort(
+  (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
+);
+const idx = chrono.findIndex((p) => p.id === post.id);
+const newerPost = idx > 0 ? chrono[idx - 1] : null; // 더 최신 = 다음 글
+const olderPost = idx >= 0 && idx < chrono.length - 1 ? chrono[idx + 1] : null; // 더 예전 = 이전 글
+
 // 카테고리명 → URL 슬러그 변환 (한글 포함 URL 안전)
 const categorySlug = encodeURIComponent(post.data.category);
 const categoryUrl = new URL(`/category/${categorySlug}/`, Astro.site).href;
@@ -128,6 +136,27 @@ const jsonLd = {
         ))}
       </ul>
     </section>
+  )}
+
+  {(olderPost || newerPost) && (
+    <nav class="post-nav" aria-label="이전·다음 글">
+      {olderPost ? (
+        <a class="post-nav__item post-nav__prev" href={`/posts/${olderPost.id}/`}>
+          <span class="post-nav__dir">← 이전 글</span>
+          <span class="post-nav__title">{olderPost.data.title}</span>
+        </a>
+      ) : (
+        <span class="post-nav__item post-nav__empty"></span>
+      )}
+      {newerPost ? (
+        <a class="post-nav__item post-nav__next" href={`/posts/${newerPost.id}/`}>
+          <span class="post-nav__dir">다음 글 →</span>
+          <span class="post-nav__title">{newerPost.data.title}</span>
+        </a>
+      ) : (
+        <span class="post-nav__item post-nav__empty"></span>
+      )}
+    </nav>
   )}
 
   <a class="back-link" href="/">← 목록으로</a>
