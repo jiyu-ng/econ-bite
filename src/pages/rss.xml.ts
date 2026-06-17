@@ -2,6 +2,7 @@ import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
 import { SITE_NAME, SITE_DESCRIPTION } from '../consts';
+import { withBase } from '../lib/url';
 
 export async function GET(context: APIContext) {
   const posts = await getCollection('posts');
@@ -18,7 +19,7 @@ export async function GET(context: APIContext) {
       title: post.data.title,
       description: post.data.description,
       pubDate: post.data.publishedDate,
-      link: `/posts/${post.id}/`,
+      link: withBase(`/posts/${post.id}/`),
       categories: [post.data.category, ...(post.data.tags ?? [])],
     })),
     customData: `<language>ko-KR</language>`,
