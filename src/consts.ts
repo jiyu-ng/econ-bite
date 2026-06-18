@@ -1,5 +1,5 @@
 // 사이트 전역 상수 (SEO·수익화 공용).
-export const SITE_NAME = '경제한입';
+export const SITE_NAME = '옳은경제';
 export const SITE_TAGLINE = '하루 한입, 쉬워지는 경제';
 export const SITE_DESCRIPTION =
   '금리·물가·환율부터 투자 기초까지. 어려운 경제를 한입 크기로 잘라 쉽게 정리하는 사이트.';
