@@ -4,8 +4,10 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // 배포 도메인 확정되면 교체 (Cloudflare Pages 기본 도메인 가정)
-  site: 'https://right-economy.pages.dev',
+  // GitHub Pages 프로젝트 사이트: https://jiyu-ng.github.io/econ-bite/
+  // (커스텀 도메인 생기면 site=그 도메인, base 제거)
+  site: 'https://jiyu-ng.github.io',
+  base: '/econ-bite',
   integrations: [
     // 빌드 시 sitemap-index.xml + sitemap-0.xml 자동 생성 (검색엔진 색인용)
     sitemap(),

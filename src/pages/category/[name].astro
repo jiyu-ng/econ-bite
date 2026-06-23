@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE_NAME } from '../../consts';
+import { withBase } from '../../lib/url';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -50,7 +51,7 @@ const jsonLd = {
   <ul class="card-list">
     {posts.map((post) => (
       <li>
-        <a class="card" href={`/posts/${post.id}/`}>
+        <a class="card" href={withBase(`/posts/${post.id}/`)}>
           <span class="category">{post.data.category}</span>
           <h2>{post.data.title}</h2>
           <p>{post.data.description}</p>
@@ -62,7 +63,7 @@ const jsonLd = {
     ))}
   </ul>
 
-  <a class="back-link" href="/">← 전체 글 보기</a>
+  <a class="back-link" href={withBase('/')}>← 전체 글 보기</a>
 </BaseLayout>
 
 <style>
