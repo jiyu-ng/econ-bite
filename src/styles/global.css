@@ -251,6 +251,23 @@ a:hover {
   color: var(--muted);
   text-align: center;
 }
+.footer-nav {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.footer-nav a {
+  color: var(--muted);
+  font-weight: 600;
+}
+.footer-nav a:hover {
+  color: var(--accent);
+}
+.footer-copy {
+  color: var(--muted);
+}
 
 /* 관련 글 */
 .related-posts {
