@@ -28,6 +28,11 @@ const readingMinutes = Math.max(1, Math.round([...plainText].length / 500));
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const siteUrl = new URL(withBase('/'), Astro.site).href;
+const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
+
+// Article 구조화 데이터 보강용: 글자 수 + ISO 8601 읽기 시간(PT#M)
+const wordCount = [...plainText].length;
+const timeRequired = `PT${readingMinutes}M`;
 
 // 관련 글: 같은 카테고리 우선, 최신순, 현재 글 제외, 최대 3개
 const sameCategory = allPosts
@@ -60,13 +65,21 @@ const jsonLd = {
       '@type': 'Article',
       headline: post.data.title,
       description: post.data.description,
+      image: [ogImage],
       datePublished: published.toISOString(),
+      dateModified: published.toISOString(),
       inLanguage: 'ko-KR',
       articleSection: post.data.category,
       keywords: post.data.tags?.join(', ') || undefined,
+      wordCount,
+      timeRequired,
       mainEntityOfPage: { '@type': 'WebPage', '@id': canonical.href },
       author: { '@type': 'Organization', name: SITE_NAME },
-      publisher: { '@type': 'Organization', name: SITE_NAME },
+      publisher: {
+        '@type': 'Organization',
+        name: SITE_NAME,
+        logo: { '@type': 'ImageObject', url: ogImage },
+      },
     },
     {
       '@type': 'BreadcrumbList',
