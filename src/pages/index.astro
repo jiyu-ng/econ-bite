@@ -14,13 +14,34 @@ const categories = CATEGORY_ORDER.filter((c) =>
 );
 
 const siteUrl = new URL(withBase('/'), Astro.site).href;
+
+// WebSite + ItemList(@graph): 검색엔진이 대표 글 목록을 구조로 이해하도록.
+// 최신 20편만 노출(과도한 목록 방지), position은 1부터.
+const listItems = posts.slice(0, 20).map((post, i) => ({
+  '@type': 'ListItem',
+  position: i + 1,
+  url: new URL(withBase(`/posts/${post.id}/`), Astro.site).href,
+  name: post.data.title,
+}));
+
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: SITE_NAME,
-  description: SITE_DESCRIPTION,
-  url: siteUrl,
-  inLanguage: 'ko-KR',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: SITE_NAME,
+      description: SITE_DESCRIPTION,
+      url: siteUrl,
+      inLanguage: 'ko-KR',
+    },
+    {
+      '@type': 'ItemList',
+      name: `${SITE_NAME} 최신 글`,
+      itemListOrder: 'https://schema.org/ItemListOrderDescending',
+      numberOfItems: listItems.length,
+      itemListElement: listItems,
+    },
+  ],
 };
 ---
 
