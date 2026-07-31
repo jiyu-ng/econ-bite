@@ -20,15 +20,28 @@ export async function getStaticPaths() {
 
 const { category, posts } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const siteUrl = new URL(withBase('/'), Astro.site).href;
 
+// CollectionPage + BreadcrumbList (@graph) — 검색결과 경로(빵부스러기) 표시
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: `${category} — ${SITE_NAME}`,
-  description: `${SITE_NAME}의 ${category} 분야 글 목록`,
-  url: canonical.href,
-  inLanguage: 'ko-KR',
-  publisher: { '@type': 'Organization', name: SITE_NAME },
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      name: `${category} — ${SITE_NAME}`,
+      description: `${SITE_NAME}의 ${category} 분야 글 목록`,
+      url: canonical.href,
+      inLanguage: 'ko-KR',
+      publisher: { '@type': 'Organization', name: SITE_NAME },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: SITE_NAME, item: siteUrl },
+        { '@type': 'ListItem', position: 2, name: category, item: canonical.href },
+      ],
+    },
+  ],
 };
 ---
 
@@ -41,6 +54,13 @@ const jsonLd = {
     slot="head"
     set:html={JSON.stringify(jsonLd)}
   />
+
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <ol>
+      <li><a href={withBase('/')}>{SITE_NAME}</a></li>
+      <li><span>{category}</span></li>
+    </ol>
+  </nav>
 
   <div class="category-hero">
     <span class="category">{category}</span>
