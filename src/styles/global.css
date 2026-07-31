@@ -18,6 +18,20 @@ html {
   scroll-behavior: smooth;
 }
 
+/* 접근성: 화면엔 안 보이지만 스크린리더·검색엔진은 읽는 텍스트
+   (레이아웃 영향 없이 시맨틱 정보만 제공할 때 사용) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* 접근성: 본문 바로가기 (키보드·스크린리더 사용자, 평소엔 화면 밖) */
 .skip-link {
   position: absolute;
