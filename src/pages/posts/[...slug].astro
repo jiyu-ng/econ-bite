@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE_NAME } from '../../consts';
 import { withBase } from '../../lib/url';
+import { readingMinutes } from '../../lib/reading';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -22,17 +23,16 @@ const dateLabel = published.toLocaleDateString('ko-KR', {
   day: 'numeric',
 });
 
-// 읽기 시간 추정 (한국어 평균 ~500자/분, 마크다운 기호 제거 후 글자 수 기준)
-const plainText = (post.body ?? '').replace(/[#>*`|_\-\[\]()!]/g, '');
-const readingMinutes = Math.max(1, Math.round([...plainText].length / 500));
+// 읽기 시간 추정 (공용 헬퍼 — 목록 카드와 같은 공식 사용)
+const minutes = readingMinutes(post.body);
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const siteUrl = new URL(withBase('/'), Astro.site).href;
 const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
 
 // Article 구조화 데이터 보강용: 글자 수 + ISO 8601 읽기 시간(PT#M)
-const wordCount = [...plainText].length;
-const timeRequired = `PT${readingMinutes}M`;
+const wordCount = [...(post.body ?? '').replace(/[#>*`|_\-\[\]()!]/g, '')].length;
+const timeRequired = `PT${minutes}M`;
 
 // 관련 글: 같은 카테고리 우선, 최신순, 현재 글 제외, 최대 3개
 const sameCategory = allPosts
@@ -118,7 +118,7 @@ const jsonLd = {
     <h1>{post.data.title}</h1>
     <p class="meta">
       <time datetime={published.toISOString().slice(0, 10)}>{dateLabel}</time>
-      <span class="reading-time"> · 📖 약 {readingMinutes}분</span>
+      <span class="reading-time"> · 📖 약 {minutes}분</span>
     </p>
 
     <Content />
