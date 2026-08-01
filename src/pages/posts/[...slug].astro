@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { SITE_NAME } from '../../consts';
+import { SITE_NAME, ADSENSE_CLIENT } from '../../consts';
 import { withBase } from '../../lib/url';
 import { readingMinutes } from '../../lib/reading';
 
@@ -131,8 +131,8 @@ const jsonLd = {
       </div>
     )}
 
-    <!-- 본문 하단 광고 슬롯 -->
-    <div class="ad-slot">광고 영역 (AdSense 승인 후 노출)</div>
+    {/* 본문 하단 광고 슬롯 — AdSense 승인 전에는 렌더 생략 */}
+    {ADSENSE_CLIENT && <div class="ad-slot">광고 영역</div>}
   </article>
 
   {relatedPosts.length > 0 && (
