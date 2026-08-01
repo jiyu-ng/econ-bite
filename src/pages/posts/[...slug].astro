@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { SITE_NAME, ADSENSE_CLIENT } from '../../consts';
+import { SITE_NAME } from '../../consts';
 import { withBase } from '../../lib/url';
 import { readingMinutes } from '../../lib/reading';
 
@@ -131,8 +131,8 @@ const jsonLd = {
       </div>
     )}
 
-    {/* 본문 하단 광고 슬롯 — AdSense 승인 전에는 렌더 생략 */}
-    {ADSENSE_CLIENT && <div class="ad-slot">광고 영역</div>}
+    {/* 광고: AdSense 승인 후 Auto Ads가 자동 배치. 빈 placeholder 박스는
+        심사·UX에 불리해 두지 않음. 필요 시 실제 광고 유닛으로 추가 예정. */}
   </article>
 
   {relatedPosts.length > 0 && (
