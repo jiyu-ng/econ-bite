@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE_NAME, SITE_DESCRIPTION, ADSENSE_CLIENT } from '../consts';
+import { SITE_NAME, SITE_DESCRIPTION } from '../consts';
 import { withBase } from '../lib/url';
 import { readingMinutes } from '../lib/reading';
 
@@ -66,9 +66,9 @@ const jsonLd = {
     ))}
   </nav>
 
-  {/* 상단 광고 슬롯 — AdSense 승인(ADSENSE_CLIENT 설정) 전에는
-      방문자에게 안내 문구를 노출하지 않도록 렌더 자체를 생략 */}
-  {ADSENSE_CLIENT && <div class="ad-slot">광고 영역</div>}
+  {/* 광고: AdSense 승인 후 Auto Ads(대시보드)가 자동 배치. 빈 placeholder
+      박스는 심사·UX에 불리해 두지 않음. 수동 광고 유닛이 필요해지면
+      실제 data-ad-slot을 가진 <ins class="adsbygoogle">로 추가 예정. */}
 
   <ul class="card-list">
     {
