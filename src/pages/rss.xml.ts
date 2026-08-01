@@ -11,10 +11,16 @@ export async function GET(context: APIContext) {
       b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
   );
 
+  // 채널 <link>는 site 값이 그대로 쓰이는데, context.site는 base(/econ-bite)가
+  // 빠진 오리진(https://jiyu-ng.github.io)이라 피드 리더가 홈을 잘못 가리킴.
+  // base를 포함한 실제 홈 URL로 교정. (item.link는 루트 절대경로라 이 site에
+  // 대해 resolve해도 중복 없이 올바른 절대 URL이 됨)
+  const feedSite = new URL(withBase('/'), context.site).href;
+
   return rss({
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
-    site: context.site!,
+    site: feedSite,
     items: sorted.map((post) => ({
       title: post.data.title,
       description: post.data.description,
