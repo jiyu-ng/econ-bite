@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jiyu-ng.github.io/econ-bite/sitemap-index.xml
+Sitemap: https://jiyu-ng.github.io/right-economy/sitemap-index.xml

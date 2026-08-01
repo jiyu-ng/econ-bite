@@ -36,7 +36,7 @@ PROMPT='너는 경제한입 사이트의 자동 개선 담당이야. 이번 슬�
 
 RESULT=$(claude -p "$PROMPT" --model sonnet --permission-mode bypassPermissions 2>&1)
 
-PR_URL=$(printf '%s' "$RESULT" | grep -oE 'https://github\.com/jiyu-ng/econ-bite/pull/[0-9]+' | tail -1)
+PR_URL=$(printf '%s' "$RESULT" | grep -oE 'https://github\.com/jiyu-ng/right-economy/pull/[0-9]+' | tail -1)
 
 if [ -n "$PR_URL" ]; then
   MSG="🔧 경제한입 기능개선 PR 올렸어! 리뷰해줘 👉 ${PR_URL}"
