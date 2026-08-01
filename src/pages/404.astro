@@ -1,6 +1,18 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { withBase } from '../lib/url';
+
+// 길 잃은 방문자·크롤러가 실제 콘텐츠로 이동할 수 있도록
+// 카테고리 바로가기 + 최신 글을 함께 제시(막다른 404 → 탐색 허브)
+const posts = (await getCollection('posts')).sort(
+  (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
+);
+const CATEGORY_ORDER = ['기초 개념', '지표 읽기', '투자', '생활 경제', '경제 뉴스'];
+const categories = CATEGORY_ORDER.filter((c) =>
+  posts.some((p) => p.data.category === c)
+);
+const recentPosts = posts.slice(0, 4);
 ---
 
 <BaseLayout
@@ -12,10 +24,33 @@ import { withBase } from '../lib/url';
     <h1 class="not-found__title">페이지를 찾을 수 없어요</h1>
     <p class="not-found__desc">
       주소가 잘못되었거나 삭제된 페이지입니다.<br />
-      옳은경제 홈에서 다른 글을 찾아보세요.
+      아래에서 다른 글을 찾아보세요.
     </p>
     <a href={withBase('/')} class="not-found__btn">홈으로 돌아가기</a>
+
+    <nav class="not-found__cats" aria-label="카테고리 바로가기">
+      {categories.map((c) => (
+        <a class="cat-chip" href={withBase(`/category/${c}/`)}>{c}</a>
+      ))}
+    </nav>
   </div>
+
+  {recentPosts.length > 0 && (
+    <section class="not-found__recent" aria-label="최신 글">
+      <h2 class="not-found__recent-heading">최신 글</h2>
+      <ul class="card-list">
+        {recentPosts.map((post) => (
+          <li>
+            <a class="card" href={withBase(`/posts/${post.id}/`)}>
+              <span class="category">{post.data.category}</span>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
@@ -24,7 +59,24 @@ import { withBase } from '../lib/url';
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 80px 20px 100px;
+    padding: 80px 20px 32px;
+  }
+  .not-found__cats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 28px;
+  }
+  .not-found__recent {
+    margin: 8px 0 64px;
+  }
+  .not-found__recent-heading {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--ink);
+    text-align: center;
+    margin: 0 0 18px;
   }
   .not-found__code {
     font-size: 5rem;
