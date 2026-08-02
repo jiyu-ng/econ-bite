@@ -16,11 +16,16 @@ export async function GET(context: APIContext) {
   // base를 포함한 실제 홈 URL로 교정. (item.link는 루트 절대경로라 이 site에
   // 대해 resolve해도 중복 없이 올바른 절대 URL이 됨)
   const feedSite = new URL(withBase('/'), context.site).href;
+  // 피드 자기참조 URL(atom:link rel="self") + 최신 글 기준 갱신시각.
+  // 둘 다 W3C 피드 유효성 검사가 권장하는 요소로, 리더 호환성·신선도 표시에 쓰임.
+  const feedUrl = new URL(withBase('/rss.xml'), context.site).href;
+  const lastBuildDate = sorted[0]?.data.publishedDate.toUTCString() ?? '';
 
   return rss({
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
     site: feedSite,
+    xmlns: { atom: 'http://www.w3.org/2005/Atom' },
     items: sorted.map((post) => ({
       title: post.data.title,
       description: post.data.description,
@@ -28,6 +33,9 @@ export async function GET(context: APIContext) {
       link: withBase(`/posts/${post.id}/`),
       categories: [post.data.category, ...(post.data.tags ?? [])],
     })),
-    customData: `<language>ko-KR</language>`,
+    customData:
+      `<language>ko-KR</language>` +
+      (lastBuildDate ? `<lastBuildDate>${lastBuildDate}</lastBuildDate>` : '') +
+      `<atom:link href="${feedUrl}" rel="self" type="application/rss+xml"/>`,
   });
 }
