@@ -1,12 +1,11 @@
-// GitHub Pages 프로젝트 사이트는 '/right-economy' 서브경로로 서빙되므로,
-// 내부 링크는 base(import.meta.env.BASE_URL)를 반드시 붙여야 404가 안 난다.
-// 주의: BASE_URL은 트레일링 슬래시가 없을 수 있어('/right-economy') 직접 이어붙이면
-// '/right-economyposts/'처럼 깨진다. 아래에서 슬래시를 안전하게 정규화한다.
-const BASE = import.meta.env.BASE_URL; // 예: '/right-economy' 또는 '/right-economy/'
+// 조직 사이트(right-economy.github.io)는 루트('/')에서 서빙되므로 현재 base는 '/'.
+// 이 헬퍼는 base(import.meta.env.BASE_URL)를 안전하게 붙여 내부 링크를 만든다.
+// (base가 '/'면 그대로, 나중에 서브경로/커스텀 도메인이 생겨도 동일하게 동작)
+const BASE = import.meta.env.BASE_URL; // 예: '/'(현재) 또는 '/서브경로'
 
-/** 루트 기준 경로에 사이트 base를 붙여 준다. withBase('/posts/x/') -> '/right-economy/posts/x/' */
+/** 루트 기준 경로에 사이트 base를 붙여 준다. withBase('/posts/x/') -> '/posts/x/' */
 export function withBase(path: string = '/'): string {
-  const base = BASE.replace(/\/+$/, ''); // 트레일링 슬래시 제거 -> '/right-economy'
+  const base = BASE.replace(/\/+$/, ''); // 트레일링 슬래시 제거 (루트면 '')
   const p = '/' + String(path).replace(/^\/+/, ''); // 선행 슬래시 보장 -> '/posts/x/'
   return (base + p).replace(/\/{2,}/g, '/');
 }

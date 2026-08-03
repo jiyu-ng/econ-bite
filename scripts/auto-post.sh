@@ -31,7 +31,7 @@ PROMPT='경제한입 사이트에 새 경제 글 1편을 작성해줘. 이 저�
 
 RESULT=$(claude -p "$PROMPT" --model sonnet --permission-mode bypassPermissions 2>&1)
 
-PR_URL=$(printf '%s' "$RESULT" | grep -oE 'https://github\.com/jiyu-ng/right-economy/pull/[0-9]+' | tail -1)
+PR_URL=$(printf '%s' "$RESULT" | grep -oE 'https://github\.com/right-economy/right-economy\.github\.io/pull/[0-9]+' | tail -1)
 
 if [ -n "$PR_URL" ]; then
   MSG="🤖 경제한입 자동 글 올렸어! 리뷰해줘 👉 ${PR_URL}"
