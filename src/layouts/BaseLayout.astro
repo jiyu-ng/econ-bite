@@ -28,7 +28,8 @@ const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
         (다크모드 브라우저에서 흰 배경 사이트의 폼 컨트롤 색 뒤틀림 방지) */}
     <meta name="theme-color" content="#e8612c" />
     <meta name="color-scheme" content="light" />
-    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <link rel="icon" type="image/png" href={withBase('/favicon-cat.png')} />
+    <link rel="apple-touch-icon" href={withBase('/favicon-cat.png')} />
     <link rel="canonical" href={canonical} />
 
     <title>{title}</title>
@@ -81,7 +82,10 @@ const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
     <a href="#main-content" class="skip-link">본문 바로가기</a>
     <header class="site-header">
       <div class="wrap">
-        <a href={withBase('/')} class="logo">옳은경제 🧭</a>
+        <a href={withBase('/')} class="logo">
+        <img src={withBase('/mascot/logo.png')} alt="" class="logo__cat" width="34" height="34" />
+        <span>옳은경제</span>
+      </a>
         <span class="tagline">복잡한 경제, 바른 방향을 짚어주는</span>
       </div>
     </header>

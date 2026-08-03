@@ -102,16 +102,27 @@ a:hover {
 }
 .site-header .wrap {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 10px;
   padding-top: 18px;
   padding-bottom: 18px;
 }
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--ink);
+}
+.logo__cat {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+.logo:hover {
+  text-decoration: none;
 }
 .tagline {
   font-size: 0.85rem;
