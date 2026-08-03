@@ -305,6 +305,47 @@ a:hover {
 .post th {
   background: var(--accent-soft);
 }
+.post img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 22px 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+.post figure {
+  margin: 24px 0;
+}
+.post figure img {
+  margin: 0;
+}
+.post figcaption,
+.post img + em,
+.post table + p > em:only-child {
+  display: block;
+  margin: 7px 2px 22px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+  font-style: normal;
+}
+
+@media (max-width: 560px) {
+  .post {
+    padding: 26px 18px;
+  }
+  .post table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .post th,
+  .post td {
+    min-width: 112px;
+  }
+}
 
 /* 광고 슬롯 */
 .ad-slot {
