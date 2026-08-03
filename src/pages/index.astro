@@ -9,7 +9,7 @@ const posts = (await getCollection('posts')).sort(
   (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
 );
 
-const CATEGORY_ORDER = ['기초 개념', '지표 읽기', '투자', '생활 경제', '경제 뉴스'];
+const CATEGORY_ORDER = ['기초 개념', '지표 읽기', '투자', '생활 경제', '부동산', '경제 뉴스'];
 const categories = CATEGORY_ORDER.filter((c) =>
   posts.some((p) => p.data.category === c)
 );
