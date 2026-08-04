@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img"
+     aria-label="실질금리 = 명목금리 4퍼센트 빼기 물가상승률 3퍼센트는 1퍼센트라는 계산 도식">
+  <style>
+    .box { rx: 16; }
+    .label { font-family: Pretendard, system-ui, sans-serif; font-weight: 700; }
+    .sub   { font-family: Pretendard, system-ui, sans-serif; font-weight: 500; }
+    .num   { font-family: Pretendard, system-ui, sans-serif; font-weight: 800; }
+    .op    { font-family: Pretendard, system-ui, sans-serif; font-weight: 800; fill: #64748b; }
+  </style>
+  <rect x="0" y="0" width="760" height="300" fill="#ffffff"/>
+
+  <!-- 명목금리 -->
+  <rect x="24" y="70" width="200" height="120" rx="16" fill="#fff4ee" stroke="#e8612c" stroke-width="2"/>
+  <text x="124" y="110" text-anchor="middle" class="sub" font-size="18" fill="#9a5a3c">명목금리</text>
+  <text x="124" y="152" text-anchor="middle" class="num" font-size="38" fill="#e8612c">4%</text>
+  <text x="124" y="176" text-anchor="middle" class="sub" font-size="13" fill="#9a5a3c">통장에 찍히는 금리</text>
+
+  <!-- 마이너스 -->
+  <text x="256" y="142" text-anchor="middle" class="op" font-size="44">−</text>
+
+  <!-- 물가상승률 -->
+  <rect x="288" y="70" width="200" height="120" rx="16" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+  <text x="388" y="110" text-anchor="middle" class="sub" font-size="18" fill="#475569">물가상승률</text>
+  <text x="388" y="152" text-anchor="middle" class="num" font-size="38" fill="#334155">3%</text>
+  <text x="388" y="176" text-anchor="middle" class="sub" font-size="13" fill="#475569">돈 가치가 줄어든 폭</text>
+
+  <!-- 이퀄 -->
+  <text x="520" y="140" text-anchor="middle" class="op" font-size="40">=</text>
+
+  <!-- 실질금리 -->
+  <rect x="552" y="70" width="184" height="120" rx="16" fill="#e8612c" stroke="#c14e1f" stroke-width="2"/>
+  <text x="644" y="110" text-anchor="middle" class="sub" font-size="18" fill="#ffe7d8">실질금리</text>
+  <text x="644" y="152" text-anchor="middle" class="num" font-size="38" fill="#ffffff">1%</text>
+  <text x="644" y="176" text-anchor="middle" class="sub" font-size="13" fill="#ffe7d8">진짜 불어난 구매력</text>
+
+  <!-- 제목 -->
+  <text x="380" y="40" text-anchor="middle" class="label" font-size="20" fill="#1f2a44">실질금리 = 명목금리 − 물가상승률</text>
+  <!-- 하단 설명 -->
+  <text x="380" y="238" text-anchor="middle" class="sub" font-size="15" fill="#475569">이자를 4% 받아도 물가가 3% 오르면, 실제로 늘어난 건 1%뿐이에요.</text>
+  <text x="380" y="266" text-anchor="middle" class="sub" font-size="12" fill="#94a3b8">※ 개념 이해를 돕기 위한 예시 계산 (실제 시장 수치 아님)</text>
+</svg>
