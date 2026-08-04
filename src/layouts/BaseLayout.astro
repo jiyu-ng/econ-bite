@@ -35,6 +35,13 @@ const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
     <title>{title}</title>
     <meta name="description" content={description} />
 
+    {/* 검색 노출 최적화: 큰 이미지 미리보기(Google 검색·Discover에서 대표 썸네일
+        크게 노출 → CTR↑) + 스니펫/영상 미리보기 길이 제한 해제. index,follow 명시. */}
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
     {/* Google Search Console 소유확인 (consts.ts에 토큰 넣으면 노출) */}
     {GSC_VERIFICATION && (
       <meta name="google-site-verification" content={GSC_VERIFICATION} />
