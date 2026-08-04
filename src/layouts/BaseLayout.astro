@@ -24,6 +24,9 @@ const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {/* iOS Safari가 본문의 숫자(금리 %·연도·"1,000만 원" 등)를 전화번호로
+        오인해 파란 링크로 바꾸는 것 방지. 숫자 많은 경제 콘텐츠에 필수. */}
+    <meta name="format-detection" content="telephone=no" />
     {/* 모바일 브라우저 주소창을 브랜드 컬러로(--accent) + 라이트 스킴 명시
         (다크모드 브라우저에서 흰 배경 사이트의 폼 컨트롤 색 뒤틀림 방지) */}
     <meta name="theme-color" content="#e8612c" />
