@@ -34,16 +34,24 @@ const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
 const wordCount = [...(post.body ?? '').replace(/[#>*`|_\-\[\]()!]/g, '')].length;
 const timeRequired = `PT${minutes}M`;
 
-// 관련 글: 같은 카테고리 우선, 최신순, 현재 글 제외, 최대 3개
-const sameCategory = allPosts
-  .filter((p) => p.id !== post.id && p.data.category === post.data.category)
-  .sort((a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime());
-
-const others = allPosts
-  .filter((p) => p.id !== post.id && p.data.category !== post.data.category)
-  .sort((a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime());
-
-const relatedPosts = [...sameCategory, ...others].slice(0, 3);
+// 관련 글: 태그 겹침을 우선 신호로 관련도를 점수화한다.
+// 겹치는 태그(가중치 2) + 같은 카테고리(가중치 1), 동점은 최신순. 현재 글 제외, 최대 3개.
+// 태그가 하나도 안 겹치면 기존 동작(같은 카테고리 최신순)으로 자연스럽게 수렴한다.
+const currentTags = new Set(post.data.tags ?? []);
+const relatedPosts = allPosts
+  .filter((p) => p.id !== post.id)
+  .map((p) => {
+    const sharedTags = (p.data.tags ?? []).filter((t) => currentTags.has(t)).length;
+    const sameCategory = p.data.category === post.data.category ? 1 : 0;
+    return { post: p, score: sharedTags * 2 + sameCategory };
+  })
+  .sort(
+    (a, b) =>
+      b.score - a.score ||
+      b.post.data.publishedDate.getTime() - a.post.data.publishedDate.getTime()
+  )
+  .slice(0, 3)
+  .map((x) => x.post);
 
 // 이전/다음 글: 전체 글을 발행일 최신순으로 줄세워 양옆 글 찾기 (순차 읽기 + 내부 링크)
 const chrono = [...allPosts].sort(
