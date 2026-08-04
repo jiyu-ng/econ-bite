@@ -23,7 +23,17 @@ const { category, posts } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const siteUrl = new URL(withBase('/'), Astro.site).href;
 
-// CollectionPage + BreadcrumbList (@graph) — 검색결과 경로(빵부스러기) 표시
+// 이 카테고리에 속한 글을 ItemList로 노출(홈과 동일 패턴) — 검색엔진이
+// 허브 페이지가 어떤 글을 묶는지 구조로 이해. 최신순, position 1부터.
+const listItems = posts.map((post, i) => ({
+  '@type': 'ListItem',
+  position: i + 1,
+  url: new URL(withBase(`/posts/${post.id}/`), Astro.site).href,
+  name: post.data.title,
+}));
+
+// CollectionPage + ItemList + BreadcrumbList (@graph)
+// — 검색결과 경로(빵부스러기) 표시 + 허브가 묶는 글 목록 노출
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -34,6 +44,13 @@ const jsonLd = {
       url: canonical.href,
       inLanguage: 'ko-KR',
       publisher: { '@type': 'Organization', name: SITE_NAME },
+    },
+    {
+      '@type': 'ItemList',
+      name: `${category} 글 목록`,
+      itemListOrder: 'https://schema.org/ItemListOrderDescending',
+      numberOfItems: listItems.length,
+      itemListElement: listItems,
     },
     {
       '@type': 'BreadcrumbList',
