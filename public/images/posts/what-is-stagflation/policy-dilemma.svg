@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" role="img"
+     aria-label="스태그플레이션에서 중앙은행의 딜레마. 금리를 올리면 물가는 잡히지만 성장이 더 나빠지고, 금리를 내리면 성장은 살지만 물가가 더 오른다.">
+  <style>
+    .t   { font-family: Pretendard, system-ui, sans-serif; }
+    .ttl { font-weight: 800; }
+    .lbl { font-weight: 700; }
+    .sub { font-weight: 500; }
+  </style>
+  <rect x="0" y="0" width="760" height="380" fill="#ffffff"/>
+
+  <text x="380" y="38" text-anchor="middle" class="t ttl" font-size="21" fill="#1f2a44">스태그플레이션의 딜레마: 어느 쪽을 눌러도 반대편이 아프다</text>
+
+  <!-- 중앙은행 박스 -->
+  <rect x="300" y="66" width="160" height="60" rx="14" fill="#1f2a44"/>
+  <text x="380" y="103" text-anchor="middle" class="t lbl" font-size="18" fill="#ffffff">중앙은행</text>
+
+  <!-- 연결선 -->
+  <path d="M340 126 L200 176" stroke="#cbd5e1" stroke-width="2.5" fill="none"/>
+  <path d="M420 126 L560 176" stroke="#cbd5e1" stroke-width="2.5" fill="none"/>
+
+  <!-- 왼쪽: 금리 인상 -->
+  <rect x="70" y="176" width="260" height="56" rx="12" fill="#fff4ee" stroke="#e8612c" stroke-width="2"/>
+  <text x="200" y="211" text-anchor="middle" class="t lbl" font-size="17" fill="#c14e1f">① 금리 인상 (물가 잡기)</text>
+
+  <rect x="70" y="248" width="260" height="86" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="200" y="278" text-anchor="middle" class="t sub" font-size="14" fill="#16a34a">✔ 물가 상승 속도 둔화</text>
+  <text x="200" y="304" text-anchor="middle" class="t sub" font-size="14" fill="#dc2626">✗ 소비·투자 위축 → 성장 더 둔화</text>
+  <text x="200" y="324" text-anchor="middle" class="t sub" font-size="14" fill="#dc2626">✗ 실업 증가 위험</text>
+
+  <!-- 오른쪽: 금리 인하 -->
+  <rect x="430" y="176" width="260" height="56" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+  <text x="560" y="211" text-anchor="middle" class="t lbl" font-size="17" fill="#334155">② 금리 인하 (성장 살리기)</text>
+
+  <rect x="430" y="248" width="260" height="86" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="560" y="278" text-anchor="middle" class="t sub" font-size="14" fill="#16a34a">✔ 소비·투자 회복 → 성장 지원</text>
+  <text x="560" y="304" text-anchor="middle" class="t sub" font-size="14" fill="#dc2626">✗ 물가가 더 빠르게 상승</text>
+  <text x="560" y="324" text-anchor="middle" class="t sub" font-size="14" fill="#dc2626">✗ 인플레이션 고착 위험</text>
+
+  <!-- 하단 주석 -->
+  <text x="380" y="362" text-anchor="middle" class="t sub" font-size="12" fill="#94a3b8">※ 스태그플레이션이 어려운 이유: 하나의 금리로 물가와 성장을 동시에 잡기 힘들다.</text>
+</svg>

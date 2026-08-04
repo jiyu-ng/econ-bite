@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" role="img"
+     aria-label="가로축 물가, 세로축 경제성장으로 나눈 네 가지 경제 상태. 성장이 낮고 물가가 오르는 오른쪽 아래 칸이 스태그플레이션.">
+  <style>
+    .t   { font-family: Pretendard, system-ui, sans-serif; }
+    .ttl { font-weight: 800; }
+    .lbl { font-weight: 700; }
+    .sub { font-weight: 500; }
+  </style>
+  <rect x="0" y="0" width="760" height="470" fill="#ffffff"/>
+
+  <!-- 제목 -->
+  <text x="380" y="38" text-anchor="middle" class="t ttl" font-size="21" fill="#1f2a44">물가와 성장으로 보는 네 가지 경제 상태</text>
+
+  <!-- 사분면 배경 -->
+  <!-- 좌상: 성장↑ 물가안정 = 골디락스 -->
+  <rect x="150" y="70" width="230" height="150" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="265" y="132" text-anchor="middle" class="t lbl" font-size="18" fill="#334155">골디락스 (이상적)</text>
+  <text x="265" y="160" text-anchor="middle" class="t sub" font-size="13" fill="#64748b">성장 O · 물가 안정</text>
+
+  <!-- 우상: 성장↑ 물가↑ = 경기 과열 -->
+  <rect x="384" y="70" width="230" height="150" rx="14" fill="#fff4ee" stroke="#f0b499" stroke-width="2"/>
+  <text x="499" y="132" text-anchor="middle" class="t lbl" font-size="18" fill="#9a5a3c">경기 과열 인플레이션</text>
+  <text x="499" y="160" text-anchor="middle" class="t sub" font-size="13" fill="#b07a5c">성장 O · 물가 상승</text>
+
+  <!-- 좌하: 성장↓ 물가안정/하락 = 침체·디플레 -->
+  <rect x="150" y="224" width="230" height="150" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="265" y="286" text-anchor="middle" class="t lbl" font-size="18" fill="#334155">경기 침체 · 디플레이션</text>
+  <text x="265" y="314" text-anchor="middle" class="t sub" font-size="13" fill="#64748b">성장 X · 물가 안정/하락</text>
+
+  <!-- 우하: 성장↓ 물가↑ = 스태그플레이션 (강조) -->
+  <rect x="384" y="224" width="230" height="150" rx="14" fill="#e8612c" stroke="#c14e1f" stroke-width="3"/>
+  <text x="499" y="282" text-anchor="middle" class="t ttl" font-size="20" fill="#ffffff">스태그플레이션</text>
+  <text x="499" y="310" text-anchor="middle" class="t sub" font-size="13" fill="#ffe7d8">성장 X · 물가 상승</text>
+  <text x="499" y="336" text-anchor="middle" class="t sub" font-size="12" fill="#ffd9c4">가장 다루기 어려운 조합</text>
+
+  <!-- 축 라벨 -->
+  <text x="382" y="410" text-anchor="middle" class="t sub" font-size="14" fill="#475569">← 물가 안정        물가 상승 →</text>
+  <text x="130" y="150" text-anchor="middle" class="t sub" font-size="14" fill="#475569" transform="rotate(-90 130 150)">← 침체        성장 →</text>
+  <text x="130" y="298" text-anchor="middle" class="t sub" font-size="14" fill="#475569" transform="rotate(-90 130 298)">← 침체        성장 →</text>
+
+  <!-- 하단 주석 -->
+  <text x="380" y="448" text-anchor="middle" class="t sub" font-size="12" fill="#94a3b8">※ 개념 이해를 돕기 위한 분류 도식 (특정 시점의 실제 지표가 아님)</text>
+</svg>
