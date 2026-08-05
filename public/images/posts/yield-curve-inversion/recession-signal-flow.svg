@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-label="중앙은행이 단기 금리를 올리고 투자자들이 미래 경기 둔화를 예상해 장기 금리가 내려가면 장단기 금리가 역전되고, 이것이 경기침체의 사전 신호로 읽히는 흐름을 나타낸 도식">
+  <rect width="760" height="300" fill="#ffffff"/>
+  <style>
+    text{font-family:'Pretendard',system-ui,sans-serif;fill:#2a2521}
+    .box{fill:#fdfaf4;stroke:#ece4d6;stroke-width:1.5;rx:12}
+    .accent{fill:#fde8de;stroke:#e8612c;stroke-width:1.8}
+    .h{font-size:14.5px;font-weight:700}
+    .s{font-size:12px;fill:#7a7066}
+    .arrow{stroke:#e8612c;stroke-width:2.4;fill:none;marker-end:url(#ah)}
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="7" refY="3.2" orient="auto">
+      <path d="M0 0 L8 3.2 L0 6.4 Z" fill="#e8612c"/>
+    </marker>
+  </defs>
+
+  <!-- 원인 1 -->
+  <rect class="box" x="30" y="50" width="210" height="80" rx="12"/>
+  <text class="h" x="52" y="82">① 단기 금리 ↑</text>
+  <text class="s" x="52" y="104">중앙은행이 물가 잡으려</text>
+  <text class="s" x="52" y="121">기준금리를 올림</text>
+
+  <!-- 원인 2 -->
+  <rect class="box" x="30" y="170" width="210" height="80" rx="12"/>
+  <text class="h" x="52" y="202">② 장기 금리 ↓</text>
+  <text class="s" x="52" y="224">투자자가 미래 경기 둔화</text>
+  <text class="s" x="52" y="241">예상 → 장기채로 몰림</text>
+
+  <!-- 화살표 to 역전 -->
+  <path class="arrow" d="M240 90 C300 90 300 150 350 150"/>
+  <path class="arrow" d="M240 210 C300 210 300 150 350 150"/>
+
+  <!-- 역전 -->
+  <rect class="accent" x="352" y="110" width="196" height="80" rx="12"/>
+  <text class="h" x="374" y="142" fill="#c0392b">③ 금리 역전</text>
+  <text class="s" x="374" y="164">단기 &gt; 장기</text>
+  <text class="s" x="374" y="181">(정상과 반대 모양)</text>
+
+  <!-- 화살표 to 신호 -->
+  <path class="arrow" d="M548 150 H600"/>
+
+  <!-- 신호 -->
+  <rect class="box" x="602" y="110" width="132" height="80" rx="12"/>
+  <text class="h" x="624" y="142">④ 침체 신호</text>
+  <text class="s" x="624" y="164">과거 여러 번</text>
+  <text class="s" x="624" y="181">앞서 나타남</text>
+</svg>
