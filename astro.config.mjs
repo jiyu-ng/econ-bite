@@ -8,14 +8,46 @@ import { fileURLToPath } from 'node:url';
 // 글별 publishedDate를 읽어 sitemap <lastmod>에 채운다. 하루 2회 발행되는
 // 사이트라 정확한 갱신일이 검색엔진 크롤 우선순위·신선도 판단에 도움을 준다.
 // (의존성 없이 frontmatter만 가볍게 파싱 — 빌드 시 1회 실행)
+//
+// 글 상세뿐 아니라 허브 페이지(홈·카테고리·태그)도 lastmod를 채운다.
+// 이 페이지들은 새 글이 발행될 때마다 목록이 바뀌므로, 가장 최근에 묶인
+// 글의 발행일을 lastmod로 주면 검색엔진이 "허브가 갱신됐다"는 신선도 신호를
+// 받아 재크롤 우선순위를 높인다. (경로별 최신 발행일을 누적해서 계산)
 const POSTS_DIR = fileURLToPath(new URL('./src/content/posts', import.meta.url));
-const postLastmod = new Map();
+const lastmodByPath = new Map();
+
+// 경로에 대해 더 최근 날짜면 갱신 (허브는 여러 글이 매핑되므로 max를 취함)
+const bumpLastmod = (path, date) => {
+  const prev = lastmodByPath.get(path);
+  if (!prev || date > prev) lastmodByPath.set(path, date);
+};
+
 for (const file of readdirSync(POSTS_DIR)) {
   if (!file.endsWith('.md')) continue;
   const slug = file.replace(/\.md$/, '');
   const raw = readFileSync(`${POSTS_DIR}/${file}`, 'utf8');
   const m = raw.match(/^publishedDate:\s*"?(\d{4}-\d{2}-\d{2})"?/m);
-  if (m) postLastmod.set(`/posts/${slug}/`, m[1]);
+  if (!m) continue;
+  const date = m[1];
+
+  // 글 상세
+  bumpLastmod(`/posts/${slug}/`, date);
+  // 홈(전체 목록)
+  bumpLastmod('/', date);
+
+  // 카테고리 허브 — 키는 디코드된(사람이 읽는) 경로로 저장하고, serialize에서
+  // sitemap URL 경로를 디코드해 대조한다. Astro의 URL 인코딩 방식과 무관하게 매칭.
+  const cat = raw.match(/^category:\s*"?([^"\n]+?)"?\s*$/m);
+  if (cat) bumpLastmod(`/category/${cat[1].trim()}/`, date);
+
+  // 태그 허브 — tags: ["a", "b"] 배열을 파싱해 각 태그 페이지에 반영
+  const tagsRaw = raw.match(/^tags:\s*\[([^\]]*)\]/m);
+  if (tagsRaw) {
+    for (const t of tagsRaw[1].split(',')) {
+      const tag = t.trim().replace(/^["']|["']$/g, '');
+      if (tag) bumpLastmod(`/tags/${tag}/`, date);
+    }
+  }
 }
 
 // https://astro.build/config
@@ -31,11 +63,12 @@ export default defineConfig({
   },
   integrations: [
     // 빌드 시 sitemap-index.xml + sitemap-0.xml 자동 생성 (검색엔진 색인용)
-    // 글 상세 URL엔 발행일을 <lastmod>로 넣어 신선도 신호를 준다.
+    // 글 상세·허브(홈·카테고리·태그) URL에 발행일을 <lastmod>로 넣어 신선도 신호.
     sitemap({
       serialize(item) {
-        const path = new URL(item.url).pathname;
-        const lastmod = postLastmod.get(path);
+        // sitemap URL 경로를 디코드해 lastmodByPath(디코드 키)와 대조.
+        const path = decodeURIComponent(new URL(item.url).pathname);
+        const lastmod = lastmodByPath.get(path);
         if (lastmod) item.lastmod = lastmod;
         return item;
       },
