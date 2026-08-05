@@ -10,4 +10,4 @@ export const SITE_LOCALE = 'ko_KR';
 export const ADSENSE_CLIENT = 'ca-pub-5346278223838545';
 
 // Google Search Console 소유확인 메타 토큰. 발급받은 content 값만 넣으면 됨. 비우면 미삽입.
-export const GSC_VERIFICATION = 'OdVg9lUe-rVEc_xRbCy_-9H9NqamCtvX7tXNWzv2mAk';
+export const GSC_VERIFICATION = 'URWVEa07_MRqW1giNH0NA8CVjRagzYNQ23BcWcmvYS0';
