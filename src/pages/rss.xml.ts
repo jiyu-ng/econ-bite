@@ -11,10 +11,11 @@ export async function GET(context: APIContext) {
       b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
   );
 
-  // 채널 <link>는 site 값이 그대로 쓰이는데, context.site는 base(/right-economy)가
-  // 빠진 오리진(https://jiyu-ng.github.io)이라 피드 리더가 홈을 잘못 가리킴.
-  // base를 포함한 실제 홈 URL로 교정. (item.link는 루트 절대경로라 이 site에
-  // 대해 resolve해도 중복 없이 올바른 절대 URL이 됨)
+  // 채널 <link>는 site 값이 그대로 쓰이므로, withBase를 적용한 실제 홈 URL로 맞춘다.
+  // 현재 배포(right-economy.github.io 루트)는 base가 '/'라 context.site와 사실상
+  // 동일하지만, 나중에 서브경로/커스텀 도메인으로 base가 바뀌어도 홈을 정확히
+  // 가리키도록 withBase로 감싼다. (item.link는 루트 절대경로라 이 site에 대해
+  // resolve해도 중복 없이 올바른 절대 URL이 됨)
   const feedSite = new URL(withBase('/'), context.site).href;
   // 피드 자기참조 URL(atom:link rel="self") + 최신 글 기준 갱신시각.
   // 둘 다 W3C 피드 유효성 검사가 권장하는 요소로, 리더 호환성·신선도 표시에 쓰임.
