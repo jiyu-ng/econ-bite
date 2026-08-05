@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" role="img" aria-label="정상 수익률 곡선은 만기가 길수록 금리가 올라 우상향하고, 역전된 곡선은 단기 금리가 장기보다 높아 우하향하는 것을 비교한 개념 도식">
+  <rect width="760" height="340" fill="#ffffff"/>
+  <style>
+    text{font-family:'Pretendard',system-ui,sans-serif;fill:#2a2521}
+    .title{font-size:17px;font-weight:700}
+    .axis{stroke:#c9bfae;stroke-width:1.5}
+    .grid{stroke:#ece4d6;stroke-width:1}
+    .lbl{font-size:12px;fill:#7a7066}
+    .cap{font-size:12.5px;font-weight:600}
+  </style>
+
+  <!-- 왼쪽: 정상 곡선 -->
+  <text class="title" x="40" y="34">정상 곡선 (우상향)</text>
+  <!-- 축 -->
+  <line class="grid" x1="60" y1="90" x2="330" y2="90"/>
+  <line class="grid" x1="60" y1="150" x2="330" y2="150"/>
+  <line class="grid" x1="60" y1="210" x2="330" y2="210"/>
+  <line class="axis" x1="60" y1="70" x2="60" y2="270"/>
+  <line class="axis" x1="60" y1="270" x2="330" y2="270"/>
+  <!-- 우상향 곡선 -->
+  <path d="M75 250 Q160 210 215 165 T315 105" fill="none" stroke="#e8612c" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="75" cy="250" r="4.5" fill="#e8612c"/>
+  <circle cx="315" cy="105" r="4.5" fill="#e8612c"/>
+  <text class="lbl" x="66" y="288">단기(3개월)</text>
+  <text class="lbl" x="270" y="288">장기(10년)</text>
+  <text class="lbl" x="30" y="74" transform="rotate(-90 30 74)">금리(%)</text>
+  <text class="cap" x="90" y="238" fill="#e8612c">낮음</text>
+  <text class="cap" x="278" y="98" fill="#e8612c">높음</text>
+
+  <!-- 오른쪽: 역전 곡선 -->
+  <text class="title" x="430" y="34">역전 곡선 (우하향)</text>
+  <line class="grid" x1="450" y1="90" x2="720" y2="90"/>
+  <line class="grid" x1="450" y1="150" x2="720" y2="150"/>
+  <line class="grid" x1="450" y1="210" x2="720" y2="210"/>
+  <line class="axis" x1="450" y1="70" x2="450" y2="270"/>
+  <line class="axis" x1="450" y1="270" x2="720" y2="270"/>
+  <!-- 우하향 곡선 -->
+  <path d="M465 110 Q550 150 605 195 T705 245" fill="none" stroke="#c0392b" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="465" cy="110" r="4.5" fill="#c0392b"/>
+  <circle cx="705" cy="245" r="4.5" fill="#c0392b"/>
+  <text class="lbl" x="456" y="288">단기(3개월)</text>
+  <text class="lbl" x="660" y="288">장기(10년)</text>
+  <text class="cap" x="470" y="100" fill="#c0392b">높음</text>
+  <text class="cap" x="668" y="238" fill="#c0392b">낮음</text>
+</svg>
