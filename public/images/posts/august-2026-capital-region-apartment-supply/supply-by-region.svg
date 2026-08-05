@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <rect width="720" height="420" fill="#ffffff"/>
+  <text x="40" y="38" font-size="20" font-weight="700" fill="#1f2937">2026년 8월 수도권 아파트 공급 — 입주 vs 분양</text>
+  <text x="40" y="60" font-size="13" fill="#6b7280">지역별 가구수 (단위: 가구)</text>
+
+  <!-- baseline -->
+  <line x1="80" y1="340" x2="690" y2="340" stroke="#d1d5db" stroke-width="1.5"/>
+  <!-- gridlines -->
+  <line x1="80" y1="270" x2="690" y2="270" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="80" y1="200" x2="690" y2="200" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="80" y1="130" x2="690" y2="130" stroke="#f1f5f9" stroke-width="1"/>
+  <text x="72" y="345" font-size="11" fill="#9ca3af" text-anchor="end">0</text>
+  <text x="72" y="275" font-size="11" fill="#9ca3af" text-anchor="end">3천</text>
+  <text x="72" y="205" font-size="11" fill="#9ca3af" text-anchor="end">6천</text>
+  <text x="72" y="135" font-size="11" fill="#9ca3af" text-anchor="end">9천</text>
+
+  <!-- 서울 g=185 -->
+  <rect x="127" y="229" width="55" height="111" fill="#ea8a00"/>
+  <rect x="188" y="182" width="55" height="158" fill="#64748b"/>
+  <text x="154" y="222" font-size="12" font-weight="700" fill="#ea8a00" text-anchor="middle">4,770</text>
+  <text x="215" y="175" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">6,770</text>
+  <text x="185" y="362" font-size="14" font-weight="600" fill="#374151" text-anchor="middle">서울</text>
+
+  <!-- 경기 g=385 -->
+  <rect x="327" y="206" width="55" height="134" fill="#ea8a00"/>
+  <rect x="388" y="92" width="55" height="248" fill="#64748b"/>
+  <text x="354" y="199" font-size="12" font-weight="700" fill="#ea8a00" text-anchor="middle">5,729</text>
+  <text x="415" y="85" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">10,626</text>
+  <text x="385" y="362" font-size="14" font-weight="600" fill="#374151" text-anchor="middle">경기</text>
+
+  <!-- 인천 g=585 -->
+  <rect x="527" y="311" width="55" height="29" fill="#ea8a00"/>
+  <rect x="588" y="221" width="55" height="119" fill="#64748b"/>
+  <text x="554" y="304" font-size="12" font-weight="700" fill="#ea8a00" text-anchor="middle">1,247</text>
+  <text x="615" y="214" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">5,096</text>
+  <text x="585" y="362" font-size="14" font-weight="600" fill="#374151" text-anchor="middle">인천</text>
+
+  <!-- legend -->
+  <rect x="230" y="388" width="14" height="14" fill="#ea8a00"/>
+  <text x="250" y="400" font-size="13" fill="#374151">입주 물량(8월)</text>
+  <rect x="380" y="388" width="14" height="14" fill="#64748b"/>
+  <text x="400" y="400" font-size="13" fill="#374151">분양 예정(8월)</text>
+</svg>
