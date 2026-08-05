@@ -12,9 +12,11 @@ interface Props {
   title: string;
   description: string;
   ogType?: 'website' | 'article';
+  /** 검색 색인 제외(404 등 유틸리티 페이지). true면 robots를 noindex로 출력. */
+  noindex?: boolean;
 }
 
-const { title, description, ogType = 'website' } = Astro.props;
+const { title, description, ogType = 'website', noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
 ---
@@ -39,10 +41,15 @@ const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
     <meta name="description" content={description} />
 
     {/* 검색 노출 최적화: 큰 이미지 미리보기(Google 검색·Discover에서 대표 썸네일
-        크게 노출 → CTR↑) + 스니펫/영상 미리보기 길이 제한 해제. index,follow 명시. */}
+        크게 노출 → CTR↑) + 스니펫/영상 미리보기 길이 제한 해제. index,follow 명시.
+        단, noindex 페이지(404 등)는 색인에서 제외하고 링크만 따라가게 한다. */}
     <meta
       name="robots"
-      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+      content={
+        noindex
+          ? 'noindex, follow'
+          : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+      }
     />
 
     {/* Google Search Console 소유확인 (consts.ts에 토큰 넣으면 노출) */}
