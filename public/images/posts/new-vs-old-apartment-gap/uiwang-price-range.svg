@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" font-family="'Noto Sans KR', system-ui, sans-serif">
+  <rect width="640" height="320" fill="#ffffff"/>
+  <text x="20" y="28" font-size="16" font-weight="700" fill="#3a3a3a">의왕 주요 단지 매매 시세 범위 (호가 기준)</text>
+
+  <!-- axis gridlines: 0,5,10,15억 at x=160,313,467,620 -->
+  <line x1="160" y1="48" x2="160" y2="272" stroke="#d9d9d9" stroke-width="1"/>
+  <line x1="313" y1="48" x2="313" y2="272" stroke="#eeeeee" stroke-width="1"/>
+  <line x1="467" y1="48" x2="467" y2="272" stroke="#eeeeee" stroke-width="1"/>
+  <line x1="620" y1="48" x2="620" y2="272" stroke="#eeeeee" stroke-width="1"/>
+  <text x="160" y="288" font-size="11" fill="#999" text-anchor="middle">0</text>
+  <text x="313" y="288" font-size="11" fill="#999" text-anchor="middle">5억</text>
+  <text x="467" y="288" font-size="11" fill="#999" text-anchor="middle">10억</text>
+  <text x="620" y="288" font-size="11" fill="#999" text-anchor="middle">15억</text>
+
+  <!-- 더샵캐슬 2021 10.0-14.0 : x 466.7..589.4 -->
+  <text x="150" y="67" font-size="12" fill="#3a3a3a" text-anchor="end">더샵캐슬 · 2021</text>
+  <rect x="466.7" y="52" width="122.7" height="22" rx="4" fill="#E8820C"/>
+  <text x="596" y="67" font-size="11" fill="#E8820C">10~14억</text>
+
+  <!-- e편한세상고천 2023 7.3-8.0 : 383.9..405.4 -->
+  <text x="150" y="113" font-size="12" fill="#3a3a3a" text-anchor="end">e편한세상고천 · 2023</text>
+  <rect x="383.9" y="98" width="21.5" height="22" rx="4" fill="#E8820C"/>
+  <text x="412" y="113" font-size="11" fill="#E8820C">7.3~8.0억</text>
+
+  <!-- 모락산현대 2002 5.5-6.9 : 328.7..371.6 -->
+  <text x="150" y="159" font-size="12" fill="#3a3a3a" text-anchor="end">모락산현대 · 2002</text>
+  <rect x="328.7" y="144" width="42.9" height="22" rx="4" fill="#F0B368"/>
+  <text x="378" y="159" font-size="11" fill="#C9871F">5.5~6.9억</text>
+
+  <!-- 신안 1991 3.65-4.5 : 271.9..298.0 -->
+  <text x="150" y="205" font-size="12" fill="#3a3a3a" text-anchor="end">신안 · 1991</text>
+  <rect x="271.9" y="190" width="26.1" height="22" rx="4" fill="#8A9099"/>
+  <text x="304" y="205" font-size="11" fill="#6b7178">3.65~4.5억</text>
+
+  <!-- 솔거 1994 3.1-4.7 : 255.1..304.1 -->
+  <text x="150" y="251" font-size="12" fill="#3a3a3a" text-anchor="end">솔거 · 1994</text>
+  <rect x="255.1" y="236" width="49.0" height="22" rx="4" fill="#8A9099"/>
+  <text x="310" y="251" font-size="11" fill="#6b7178">3.1~4.7억</text>
+
+  <!-- legend -->
+  <rect x="180" y="300" width="12" height="12" rx="2" fill="#E8820C"/>
+  <text x="198" y="310" font-size="11" fill="#666">2020년대 신축</text>
+  <rect x="300" y="300" width="12" height="12" rx="2" fill="#F0B368"/>
+  <text x="318" y="310" font-size="11" fill="#666">2000년대</text>
+  <rect x="400" y="300" width="12" height="12" rx="2" fill="#8A9099"/>
+  <text x="418" y="310" font-size="11" fill="#666">1990년대 구축</text>
+</svg>
