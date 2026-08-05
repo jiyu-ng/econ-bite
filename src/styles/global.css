@@ -4,8 +4,11 @@
   --ink: #2a2521;
   --muted: #7a7066;
   --line: #ece4d6;
-  --accent: #e8612c;
-  --accent-soft: #fde8de;
+  /* 브랜드 오렌지. WCAG AA(4.5:1) 충족하도록 약간 진하게 조정(구 #e8612c).
+     흰/연오렌지 배경 위 텍스트·링크 대비: on-white 5.18, on-bg 4.97, 흰글씨-on 5.18 */
+  --accent: #c2410c;
+  /* 칩·배지 배경(연오렌지). accent 텍스트가 이 위에서 4.7:1 나오도록 살짝 밝힘(구 #fde8de) */
+  --accent-soft: #fff2ec;
   --radius: 14px;
   --max: 760px;
 }
