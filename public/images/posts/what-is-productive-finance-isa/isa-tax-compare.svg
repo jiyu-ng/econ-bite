@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" role="img"
+     aria-label="일반 ISA는 이자·배당 비과세가 일반형 200만원, 서민형 400만원까지로 제한되고 초과분은 9퍼센트 분리과세인 반면, 생산적금융 ISA는 국내 투자 이자·배당을 한도 없이 전액 비과세하는 비교 도식.">
+  <style>
+    .t   { font-family: Pretendard, system-ui, sans-serif; }
+    .ttl { font-weight: 800; }
+    .lbl { font-weight: 700; }
+    .sub { font-weight: 500; }
+  </style>
+  <rect x="0" y="0" width="760" height="430" fill="#ffffff"/>
+
+  <text x="380" y="40" text-anchor="middle" class="t ttl" font-size="21" fill="#1f2a44">이자·배당 비과세, 두 계좌가 이렇게 다르다</text>
+
+  <!-- 왼쪽: 일반 ISA -->
+  <rect x="50" y="70" width="320" height="270" rx="16" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="210" y="106" text-anchor="middle" class="t lbl" font-size="18" fill="#334155">기존 일반 ISA</text>
+  <text x="210" y="152" text-anchor="middle" class="t ttl" font-size="30" fill="#475569">한도까지만</text>
+  <text x="210" y="182" text-anchor="middle" class="t sub" font-size="14" fill="#64748b">이자·배당 비과세에 상한이 있음</text>
+  <line x1="85" y1="204" x2="335" y2="204" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="210" y="234" text-anchor="middle" class="t sub" font-size="14.5" fill="#334155">일반형 200만원 · 서민형 400만원</text>
+  <text x="210" y="262" text-anchor="middle" class="t sub" font-size="14.5" fill="#334155">까지 비과세</text>
+  <text x="210" y="298" text-anchor="middle" class="t sub" font-size="14.5" fill="#64748b">한도 초과분은 9% 분리과세</text>
+  <text x="210" y="324" text-anchor="middle" class="t sub" font-size="13" fill="#94a3b8">국내·해외 등 폭넓게 투자 가능</text>
+
+  <!-- 오른쪽: 생산적금융 ISA (강조) -->
+  <rect x="390" y="70" width="320" height="270" rx="16" fill="#fff4ee" stroke="#e8612c" stroke-width="3"/>
+  <text x="550" y="106" text-anchor="middle" class="t lbl" font-size="18" fill="#c14e1f">신설 생산적금융 ISA</text>
+  <text x="550" y="152" text-anchor="middle" class="t ttl" font-size="30" fill="#e8612c">전액 비과세</text>
+  <text x="550" y="182" text-anchor="middle" class="t sub" font-size="14" fill="#b0552c">이자·배당에 한도가 없음</text>
+  <line x1="425" y1="204" x2="675" y2="204" stroke="#f0b499" stroke-width="1.5"/>
+  <text x="550" y="234" text-anchor="middle" class="t sub" font-size="14.5" fill="#7c3a1c">금액과 무관하게 이자·배당</text>
+  <text x="550" y="262" text-anchor="middle" class="t sub" font-size="14.5" fill="#7c3a1c">전액 비과세</text>
+  <text x="550" y="298" text-anchor="middle" class="t sub" font-size="14.5" fill="#9a5a3c">단, 국내 투자 전용</text>
+  <text x="550" y="324" text-anchor="middle" class="t sub" font-size="13" fill="#b07a5c">국내 상장주식·국내 주식형 펀드 등</text>
+
+  <text x="380" y="378" text-anchor="middle" class="t sub" font-size="12.5" fill="#64748b">국내 투자에 한해 비과세 혜택을 크게 키운 것이 신설 계좌의 핵심</text>
+  <text x="380" y="404" text-anchor="middle" class="t sub" font-size="11.5" fill="#94a3b8">※ 2026년 세제개편안(정부안) 기준 · 국회 논의 과정에서 세부 내용은 바뀔 수 있음</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img"
+     aria-label="생산적금융 ISA 핵심 4가지: 국내 투자 전용, 이자·배당 전액 비과세, 납입 한도 연 2000만원 총 2억원, 금융소득종합과세 대상자는 가입 불가.">
+  <style>
+    .t   { font-family: Pretendard, system-ui, sans-serif; }
+    .ttl { font-weight: 800; }
+    .lbl { font-weight: 700; }
+    .sub { font-weight: 500; }
+  </style>
+  <rect x="0" y="0" width="760" height="400" fill="#ffffff"/>
+
+  <text x="380" y="40" text-anchor="middle" class="t ttl" font-size="21" fill="#1f2a44">생산적금융 ISA, 한눈에 보는 핵심 4가지</text>
+
+  <!-- 1 -->
+  <rect x="50" y="66" width="330" height="130" rx="14" fill="#fff4ee" stroke="#f0b499" stroke-width="2"/>
+  <circle cx="90" cy="106" r="18" fill="#e8612c"/>
+  <text x="90" y="112" text-anchor="middle" class="t ttl" font-size="18" fill="#ffffff">1</text>
+  <text x="122" y="103" class="t lbl" font-size="16.5" fill="#c14e1f">국내 투자 전용</text>
+  <text x="122" y="130" class="t sub" font-size="13.5" fill="#7c3a1c">국내 상장주식·국내 주식형 펀드,</text>
+  <text x="122" y="150" class="t sub" font-size="13.5" fill="#7c3a1c">국민성장펀드·BDC 등이 대상</text>
+  <text x="122" y="176" class="t sub" font-size="12.5" fill="#b07a5c">해외 주식·상품은 대상이 아님</text>
+
+  <!-- 2 -->
+  <rect x="400" y="66" width="330" height="130" rx="14" fill="#fff4ee" stroke="#f0b499" stroke-width="2"/>
+  <circle cx="440" cy="106" r="18" fill="#e8612c"/>
+  <text x="440" y="112" text-anchor="middle" class="t ttl" font-size="18" fill="#ffffff">2</text>
+  <text x="472" y="103" class="t lbl" font-size="16.5" fill="#c14e1f">이자·배당 전액 비과세</text>
+  <text x="472" y="130" class="t sub" font-size="13.5" fill="#7c3a1c">금액 한도 없이 이자·배당소득을</text>
+  <text x="472" y="150" class="t sub" font-size="13.5" fill="#7c3a1c">전액 비과세</text>
+  <text x="472" y="176" class="t sub" font-size="12.5" fill="#b07a5c">일반 ISA(200만·400만 한도)보다 큼</text>
+
+  <!-- 3 -->
+  <rect x="50" y="212" width="330" height="130" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="90" cy="252" r="18" fill="#64748b"/>
+  <text x="90" y="258" text-anchor="middle" class="t ttl" font-size="18" fill="#ffffff">3</text>
+  <text x="122" y="249" class="t lbl" font-size="16.5" fill="#334155">납입 한도</text>
+  <text x="122" y="276" class="t sub" font-size="13.5" fill="#475569">연 2,000만원 · 총 2억원</text>
+  <text x="122" y="296" class="t sub" font-size="13.5" fill="#475569">까지 납입</text>
+  <text x="122" y="322" class="t sub" font-size="12.5" fill="#94a3b8">쓰지 않은 연 한도는 이월 불가</text>
+
+  <!-- 4 -->
+  <rect x="400" y="212" width="330" height="130" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="440" cy="252" r="18" fill="#64748b"/>
+  <text x="440" y="258" text-anchor="middle" class="t ttl" font-size="18" fill="#ffffff">4</text>
+  <text x="472" y="249" class="t lbl" font-size="16.5" fill="#334155">가입 제한</text>
+  <text x="472" y="276" class="t sub" font-size="13.5" fill="#475569">직전 3년 중 한 번이라도</text>
+  <text x="472" y="296" class="t sub" font-size="13.5" fill="#475569">금융소득종합과세 대상이면 가입 불가</text>
+  <text x="472" y="322" class="t sub" font-size="12.5" fill="#94a3b8">고액 금융자산가 절세 악용 차단</text>
+
+  <text x="380" y="378" text-anchor="middle" class="t sub" font-size="11.5" fill="#94a3b8">※ 2026년 세제개편안(정부안) 기준 · 국회 논의 과정에서 세부 내용은 바뀔 수 있음</text>
+</svg>
