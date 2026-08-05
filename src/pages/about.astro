@@ -1,13 +1,63 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE_NAME } from '../consts';
+import { SITE_NAME, SITE_DESCRIPTION } from '../consts';
 import { withBase } from '../lib/url';
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const siteUrl = new URL(withBase('/'), Astro.site).href;
+const logoUrl = new URL(withBase('/mascot/logo.png'), Astro.site).href;
+
+// AboutPage + Organization(발행처) + BreadcrumbList (@graph)
+// — 글 상세의 Article.publisher가 가리키는 발행 주체를 /about에 정식 노드로
+//   명시해, 검색엔진이 사이트를 하나의 엔티티(지식 그래프)로 이해하게 한다.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${siteUrl}#organization`,
+      name: SITE_NAME,
+      url: siteUrl,
+      description: SITE_DESCRIPTION,
+      logo: { '@type': 'ImageObject', url: logoUrl },
+      parentOrganization: { '@type': 'Organization', name: '글린트프로젝트' },
+    },
+    {
+      '@type': 'AboutPage',
+      name: `소개 — ${SITE_NAME}`,
+      url: canonical.href,
+      inLanguage: 'ko-KR',
+      about: { '@id': `${siteUrl}#organization` },
+      publisher: { '@id': `${siteUrl}#organization` },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: SITE_NAME, item: siteUrl },
+        { '@type': 'ListItem', position: 2, name: '소개', item: canonical.href },
+      ],
+    },
+  ],
+};
 ---
 
 <BaseLayout
   title={`소개 — ${SITE_NAME}`}
   description={`${SITE_NAME}는 복잡한 경제를 쉽고 정확하게, 바른 방향으로 정리하는 콘텐츠 사이트입니다.`}
 >
+  <script
+    type="application/ld+json"
+    slot="head"
+    set:html={JSON.stringify(jsonLd)}
+  />
+
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <ol>
+      <li><a href={withBase('/')}>{SITE_NAME}</a></li>
+      <li><span aria-current="page">소개</span></li>
+    </ol>
+  </nav>
+
   <article class="post">
     <h1>옳은경제 소개</h1>
 
