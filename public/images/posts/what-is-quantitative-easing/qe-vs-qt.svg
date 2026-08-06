@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="360" viewBox="0 0 740 360" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <rect width="740" height="360" fill="#ffffff"/>
+  <text x="40" y="36" font-size="20" font-weight="700" fill="#1a1a1a">양적완화(QE) vs 양적긴축(QT)</text>
+  <text x="40" y="58" font-size="13" fill="#6b7280">푼 돈은 언젠가 거둬들여야 한다 — 방향이 정반대인 두 국면</text>
+
+  <!-- QE 카드 -->
+  <rect x="48" y="82" width="308" height="238" rx="14" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+  <text x="202" y="116" font-size="18" font-weight="700" fill="#3730a3" text-anchor="middle">양적완화 (QE)</text>
+  <text x="202" y="140" font-size="13" fill="#4f46e5" text-anchor="middle">돈을 '푸는' 국면</text>
+  <text x="72" y="178" font-size="14" fill="#312e81">· 자산을 사들여 유동성 공급</text>
+  <text x="72" y="208" font-size="14" fill="#312e81">· 장기금리 ↓, 자산값 ↑</text>
+  <text x="72" y="238" font-size="14" fill="#312e81">· 언제: 불황·디플레 위험 때</text>
+  <text x="72" y="268" font-size="14" fill="#312e81">· 목표: 경기·물가 살리기</text>
+  <text x="72" y="298" font-size="13" fill="#6366f1">→ 중앙은행 보유자산 늘어남</text>
+
+  <!-- QT 카드 -->
+  <rect x="384" y="82" width="308" height="238" rx="14" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="538" y="116" font-size="18" font-weight="700" fill="#9a3412" text-anchor="middle">양적긴축 (QT)</text>
+  <text x="538" y="140" font-size="13" fill="#c2410c" text-anchor="middle">돈을 '거두는' 국면</text>
+  <text x="408" y="178" font-size="14" fill="#7c2d12">· 자산을 줄여 유동성 회수</text>
+  <text x="408" y="208" font-size="14" fill="#7c2d12">· 장기금리 ↑, 자산값 압박</text>
+  <text x="408" y="238" font-size="14" fill="#7c2d12">· 언제: 과열·인플레 때</text>
+  <text x="408" y="268" font-size="14" fill="#7c2d12">· 목표: 물가·거품 진정</text>
+  <text x="408" y="298" font-size="13" fill="#ea580c">→ 중앙은행 보유자산 줄어듦</text>
+</svg>
