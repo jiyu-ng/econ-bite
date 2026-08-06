@@ -189,6 +189,14 @@ a:hover {
   padding: 0;
   list-style: none;
 }
+/* 홈(전체 글 60+편)처럼 긴 목록에서 화면 밖 카드의 렌더·레이아웃 비용을
+   건너뛰어 초기 렌더 부담을 줄인다. 화면 안 카드는 정상 렌더되고, HTML/DOM은
+   그대로라 SEO·본문검색에 영향 없다. auto 키워드로 실제 높이를 기억해 스크롤
+   시 레이아웃 흔들림을 최소화(미지원 브라우저는 규칙을 무시하고 정상 렌더). */
+.card-list > li {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 180px;
+}
 .card {
   display: block;
   background: var(--surface);
