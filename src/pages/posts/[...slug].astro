@@ -114,6 +114,27 @@ const jsonLd = {
   {/* Open Graph article 메타 (소셜 공유·검색 리치) */}
   <meta property="article:published_time" content={published.toISOString()} slot="head" />
   <meta property="article:section" content={post.data.category} slot="head" />
+  {/* 글의 주제 태그를 OG article:tag로 노출 — 소셜·검색이 글의 토픽을 구조로 이해 */}
+  {post.data.tags?.map((tag: string) => (
+    <meta property="article:tag" content={tag} slot="head" />
+  ))}
+  {/* 순차 읽기 힌트: 크롤러·리더가 이전/다음 글 관계를 이해하도록
+      rel=prev(더 예전 글)·rel=next(더 최신 글) 링크를 head에 명시.
+      화면의 이전/다음 내비게이션과 같은 대상을 가리킨다. */}
+  {olderPost && (
+    <link
+      rel="prev"
+      href={new URL(withBase(`/posts/${olderPost.id}/`), Astro.site).href}
+      slot="head"
+    />
+  )}
+  {newerPost && (
+    <link
+      rel="next"
+      href={new URL(withBase(`/posts/${newerPost.id}/`), Astro.site).href}
+      slot="head"
+    />
+  )}
   <nav class="breadcrumb" aria-label="breadcrumb">
     <ol>
       <li><a href={withBase('/')}>{SITE_NAME}</a></li>
