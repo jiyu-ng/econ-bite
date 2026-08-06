@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <rect width="720" height="430" fill="#ffffff"/>
+  <text x="40" y="36" font-size="20" font-weight="700" fill="#1f2937">디플레이션 악순환 — 물가 하락이 스스로를 부른다</text>
+  <text x="40" y="58" font-size="13" fill="#6b7280">한 단계가 다음 단계를 부르며 경기가 가라앉는 구조</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowLoop" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#c2410c"/>
+    </marker>
+  </defs>
+
+  <!-- 5 stacked steps -->
+  <g>
+    <rect x="70" y="78" width="380" height="46" rx="9" fill="#fff2ec" stroke="#f4b892"/>
+    <text x="260" y="107" font-size="15" font-weight="700" fill="#9a3412" text-anchor="middle">① 물가가 계속 내린다</text>
+
+    <rect x="70" y="146" width="380" height="46" rx="9" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="260" y="175" font-size="15" fill="#334155" text-anchor="middle">② "더 싸지겠지" 소비를 미룬다</text>
+
+    <rect x="70" y="214" width="380" height="46" rx="9" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="260" y="243" font-size="15" fill="#334155" text-anchor="middle">③ 안 팔리니 기업 매출·이익이 준다</text>
+
+    <rect x="70" y="282" width="380" height="46" rx="9" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="260" y="311" font-size="15" fill="#334155" text-anchor="middle">④ 임금이 깎이고 일자리가 줄어든다</text>
+
+    <rect x="70" y="350" width="380" height="46" rx="9" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="260" y="379" font-size="15" fill="#334155" text-anchor="middle">⑤ 가계 소득이 줄어 소비가 더 위축</text>
+  </g>
+
+  <!-- down arrows -->
+  <line x1="260" y1="124" x2="260" y2="144" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="260" y1="192" x2="260" y2="212" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="260" y1="260" x2="260" y2="280" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="260" y1="328" x2="260" y2="348" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- loop back arrow (⑤ -> ①) -->
+  <path d="M450,373 H540 Q560,373 560,353 V121 Q560,101 540,101 H452"
+        fill="none" stroke="#c2410c" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#arrowLoop)"/>
+  <text x="583" y="240" font-size="13" font-weight="700" fill="#c2410c" text-anchor="middle" transform="rotate(90 583 240)">물가 더 하락 → 반복</text>
+</svg>
