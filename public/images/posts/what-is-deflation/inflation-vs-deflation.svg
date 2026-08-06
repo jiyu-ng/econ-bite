@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <rect width="720" height="400" fill="#ffffff"/>
+  <text x="40" y="36" font-size="20" font-weight="700" fill="#1f2937">인플레이션 vs 디플레이션 — 방향이 정반대</text>
+  <text x="40" y="58" font-size="13" fill="#6b7280">물가와 화폐가치, 소비 심리가 서로 반대로 움직인다</text>
+
+  <!-- 인플레이션 카드 -->
+  <rect x="48" y="82" width="290" height="216" rx="14" fill="#fff2ec" stroke="#f4b892" stroke-width="1.5"/>
+  <text x="193" y="118" font-size="18" font-weight="700" fill="#9a3412" text-anchor="middle">인플레이션</text>
+  <text x="193" y="142" font-size="13" fill="#b45309" text-anchor="middle">물가가 오르는 상태</text>
+  <text x="86" y="185" font-size="15" fill="#7c2d12">물가</text>
+  <text x="150" y="185" font-size="22" font-weight="700" fill="#ea580c">▲ 상승</text>
+  <text x="86" y="223" font-size="15" fill="#7c2d12">화폐가치</text>
+  <text x="188" y="223" font-size="22" font-weight="700" fill="#94a3b8">▼ 하락</text>
+  <text x="86" y="266" font-size="15" fill="#7c2d12">소비심리</text>
+  <text x="188" y="266" font-size="15" font-weight="700" fill="#7c2d12">"지금 사자"</text>
+
+  <!-- 디플레이션 카드 -->
+  <rect x="382" y="82" width="290" height="216" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="527" y="118" font-size="18" font-weight="700" fill="#334155" text-anchor="middle">디플레이션</text>
+  <text x="527" y="142" font-size="13" fill="#64748b" text-anchor="middle">물가가 내리는 상태</text>
+  <text x="420" y="185" font-size="15" fill="#334155">물가</text>
+  <text x="484" y="185" font-size="22" font-weight="700" fill="#2563eb">▼ 하락</text>
+  <text x="420" y="223" font-size="15" fill="#334155">화폐가치</text>
+  <text x="522" y="223" font-size="22" font-weight="700" fill="#ea580c">▲ 상승</text>
+  <text x="420" y="266" font-size="15" fill="#334155">소비심리</text>
+  <text x="522" y="266" font-size="15" font-weight="700" fill="#334155">"나중에 사자"</text>
+
+  <!-- 하단 목표 띠 -->
+  <rect x="48" y="322" width="624" height="46" rx="10" fill="#ecfdf5" stroke="#a7f3d0"/>
+  <text x="360" y="351" font-size="14.5" font-weight="700" fill="#047857" text-anchor="middle">중앙은행의 목표는 둘의 중간 — 완만한 물가 상승(대체로 연 2% 안팎)</text>
+</svg>
