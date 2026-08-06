@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <rect width="760" height="300" fill="#ffffff"/>
+  <text x="380" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#1a1a1a">노후계획도시 재정비 진행 흐름</text>
+  <text x="380" y="60" text-anchor="middle" font-size="13" fill="#888">2027 착공·2030 입주는 정부가 제시한 목표 시점이에요</text>
+
+  <!-- baseline -->
+  <line x1="70" y1="150" x2="690" y2="150" stroke="#d9d9d9" stroke-width="3"/>
+
+  <!-- nodes -->
+  <!-- 1 -->
+  <circle cx="90" cy="150" r="11" fill="#F97316"/>
+  <text x="90" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a">2024.4</text>
+  <text x="90" y="192" text-anchor="middle" font-size="13" fill="#444">특별법</text>
+  <text x="90" y="210" text-anchor="middle" font-size="13" fill="#444">시행</text>
+
+  <!-- 2 -->
+  <circle cx="240" cy="150" r="11" fill="#F97316"/>
+  <text x="240" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a">2024.9</text>
+  <text x="240" y="192" text-anchor="middle" font-size="13" fill="#444">선도지구</text>
+  <text x="240" y="210" text-anchor="middle" font-size="13" fill="#444">공모</text>
+
+  <!-- 3 -->
+  <circle cx="390" cy="150" r="11" fill="#F97316"/>
+  <text x="390" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a">2024.11</text>
+  <text x="390" y="192" text-anchor="middle" font-size="13" fill="#444">1차 선도지구</text>
+  <text x="390" y="210" text-anchor="middle" font-size="13" fill="#444">선정</text>
+
+  <!-- 4 -->
+  <circle cx="540" cy="150" r="11" fill="#fdba74"/>
+  <text x="540" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#b45309">2027</text>
+  <text x="540" y="192" text-anchor="middle" font-size="13" fill="#444">착공</text>
+  <text x="540" y="210" text-anchor="middle" font-size="12" fill="#999">(목표)</text>
+
+  <!-- 5 -->
+  <circle cx="690" cy="150" r="11" fill="#fdba74"/>
+  <text x="690" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#b45309">2030</text>
+  <text x="690" y="192" text-anchor="middle" font-size="13" fill="#444">입주</text>
+  <text x="690" y="210" text-anchor="middle" font-size="12" fill="#999">(목표)</text>
+
+  <!-- divider note -->
+  <text x="465" y="258" text-anchor="middle" font-size="12" fill="#c0392b">← 여기까지는 확정 · 이후(연한 색)는 목표 시점이라 늦춰질 수 있어요 →</text>
+  <text x="380" y="285" text-anchor="middle" font-size="11" fill="#aaa">기준: 2026.08 · 출처: 국토교통부 보도자료(노후계획도시정비특별법·선도지구 공모)</text>
+</svg>
