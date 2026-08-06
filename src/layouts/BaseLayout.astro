@@ -78,10 +78,13 @@ const ogImage = new URL(withBase('/og-default.png'), Astro.site).href;
     <!-- 폰트 CDN preconnect (렌더 차단 폰트 로딩 단축) -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 
-    <!-- 한국어 가독성 폰트 -->
+    {/* 한국어 가독성 폰트 (Pretendard).
+        dynamic-subset 빌드: 각 글자 범위를 unicode-range로 쪼개 두어, 그 페이지에
+        실제로 쓰인 글자의 서브셋 woff2만 내려받는다(전체 한글 글리프 대량 다운로드 방지).
+        family명은 그대로 'Pretendard', font-display:swap 내장이라 FOIT 없이 즉시 렌더. */}
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css"
     />
 
     {/* 페이지별 구조화 데이터(JSON-LD) 등 추가 head 요소 주입 슬롯 */}
