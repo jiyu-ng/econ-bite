@@ -50,11 +50,40 @@ for (const file of readdirSync(POSTS_DIR)) {
   }
 }
 
-// 본문 이미지 로딩 최적화(rehype): 글마다 시각자료 2~4개가 들어가는데
-// 마크다운 렌더 결과 <img>에는 loading/decoding 속성이 없어 전부 즉시·동기
-// 로드된다. 첫 이미지는 LCP 후보라 eager로 두고, 나머지는 lazy로 미뤄
-// 초기 로드 부담을 줄인다. 모든 이미지에 decoding="async"로 디코딩이
-// 메인 스레드를 막지 않게 한다. (unist 등 외부 의존성 없이 hast 트리를 직접 순회)
+// 로컬 SVG(/images/...)의 고유 크기를 viewBox/width·height에서 읽어온다.
+// 빌드 시 1회 파일을 읽어 캐시(같은 이미지 여러 글에 재사용). 못 읽으면 null.
+const PUBLIC_DIR = fileURLToPath(new URL('./public', import.meta.url));
+const svgDimCache = new Map();
+function svgIntrinsicSize(src) {
+  if (typeof src !== 'string' || !src.startsWith('/') || !src.toLowerCase().endsWith('.svg')) {
+    return null;
+  }
+  if (svgDimCache.has(src)) return svgDimCache.get(src);
+  let dim = null;
+  try {
+    const head = readFileSync(PUBLIC_DIR + src, 'utf8').slice(0, 800);
+    // width="720" height="430" 우선, 없으면 viewBox의 3·4번째 값(가로·세로)
+    let m = head.match(/<svg[^>]*\bwidth="(\d+(?:\.\d+)?)"[^>]*\bheight="(\d+(?:\.\d+)?)"/i);
+    if (!m) {
+      const vb = head.match(/viewBox="\s*[\d.-]+\s+[\d.-]+\s+([\d.]+)\s+([\d.]+)/i);
+      if (vb) m = [null, vb[1], vb[2]];
+    }
+    if (m) dim = { width: Math.round(Number(m[1])), height: Math.round(Number(m[2])) };
+  } catch {
+    // 파일이 없거나 읽기 실패 → 크기 주입 생략(안전)
+  }
+  svgDimCache.set(src, dim);
+  return dim;
+}
+
+// 본문 이미지 로딩·안정성 최적화(rehype): 글마다 시각자료 2~4개가 들어가는데
+// 마크다운 렌더 결과 <img>에는 loading/decoding/크기 속성이 없다.
+// - 첫 이미지는 LCP 후보라 eager, 나머지는 lazy로 초기 로드 부담을 줄이고
+//   모든 이미지에 decoding="async"로 디코딩이 메인 스레드를 막지 않게 한다.
+// - 로컬 SVG는 고유 width/height를 채워, 이미지가 로드되기 전에도 브라우저가
+//   자리를 미리 잡게 해 레이아웃 시프트(CLS)를 없앤다. CSS(width:100%;height:auto)가
+//   실제 표시 크기를 정하므로 값은 종횡비 계산용으로만 쓰인다.
+// (unist 등 외부 의존성 없이 hast 트리를 직접 순회)
 function rehypeImgLoading() {
   return (tree) => {
     let seen = 0;
@@ -65,6 +94,14 @@ function rehypeImgLoading() {
         if (node.properties.decoding == null) node.properties.decoding = 'async';
         if (node.properties.loading == null) {
           node.properties.loading = seen === 0 ? 'eager' : 'lazy';
+        }
+        // 크기 미지정 시 로컬 SVG 고유 크기 주입(CLS 방지). 한쪽이라도 있으면 존중.
+        if (node.properties.width == null && node.properties.height == null) {
+          const dim = svgIntrinsicSize(node.properties.src);
+          if (dim) {
+            node.properties.width = dim.width;
+            node.properties.height = dim.height;
+          }
         }
         seen += 1;
       }
