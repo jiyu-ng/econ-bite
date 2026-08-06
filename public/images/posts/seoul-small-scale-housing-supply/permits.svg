@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <rect width="720" height="420" fill="#ffffff"/>
+  <text x="360" y="40" text-anchor="middle" font-size="20" font-weight="700" fill="#1a1a1a">서울 소규모 주택 신축, 3년 만에 3분의 1로</text>
+  <text x="360" y="63" text-anchor="middle" font-size="13" fill="#888">150세대 미만 공동·단독주택 등 신축 사용승인 건수</text>
+
+  <!-- axes -->
+  <line x1="90" y1="330" x2="660" y2="330" stroke="#333" stroke-width="1.5"/>
+  <line x1="90" y1="100" x2="90" y2="330" stroke="#333" stroke-width="1.5"/>
+
+  <!-- y gridlines -->
+  <line x1="90" y1="253" x2="660" y2="253" stroke="#eee" stroke-width="1"/>
+  <line x1="90" y1="177" x2="660" y2="177" stroke="#eee" stroke-width="1"/>
+  <text x="82" y="334" text-anchor="end" font-size="11" fill="#999">0</text>
+  <text x="82" y="257" text-anchor="end" font-size="11" fill="#999">1,000</text>
+  <text x="82" y="181" text-anchor="end" font-size="11" fill="#999">2,000</text>
+  <text x="82" y="104" text-anchor="end" font-size="11" fill="#999">3,000</text>
+
+  <!-- bar 2022: 3006 -> height scale: 3000 -> 230px (330-100). px per unit = 230/3000=0.0767 -->
+  <!-- 3006*0.0767=230 -->
+  <rect x="150" y="100" width="90" height="230" fill="#F97316"/>
+  <text x="195" y="92" text-anchor="middle" font-size="15" font-weight="700" fill="#c2410c">3,006</text>
+  <text x="195" y="352" text-anchor="middle" font-size="13" fill="#444">2022년</text>
+
+  <!-- bar 2025: 993 -> 993*0.0767=76 -> y=254 -->
+  <rect x="330" y="254" width="90" height="76" fill="#fb923c"/>
+  <text x="375" y="246" text-anchor="middle" font-size="15" font-weight="700" fill="#c2410c">993</text>
+  <text x="375" y="352" text-anchor="middle" font-size="13" fill="#444">2025년</text>
+
+  <!-- bar 2026 H1: 496 -> 496*0.0767=38 -> y=292 -->
+  <rect x="510" y="292" width="90" height="38" fill="#fdba74"/>
+  <text x="555" y="284" text-anchor="middle" font-size="15" font-weight="700" fill="#c2410c">496</text>
+  <text x="555" y="352" text-anchor="middle" font-size="13" fill="#444">2026년</text>
+  <text x="555" y="370" text-anchor="middle" font-size="11" fill="#999">상반기</text>
+
+  <!-- drop annotation -->
+  <text x="360" y="398" text-anchor="middle" font-size="12" fill="#c0392b">2022→2025 신축 사용승인 −67.0% · 1,000건 미만은 2000년 이후 처음</text>
+  <text x="360" y="415" text-anchor="middle" font-size="10" fill="#aaa">기준: 2026.08 · 단위: 건 · 출처: 서울경제(서울시 건축물 사용승인 분석, 2026.8.5)</text>
+</svg>
