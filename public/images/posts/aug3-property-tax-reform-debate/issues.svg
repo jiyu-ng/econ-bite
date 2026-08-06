@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="360" viewBox="0 0 760 360" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <rect width="760" height="360" fill="#ffffff"/>
+  <text x="380" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#1a1a1a">토론회에서 제기된 8·3 세제대책 4대 쟁점</text>
+  <text x="380" y="60" text-anchor="middle" font-size="13" fill="#888">2026.8.6 부동산 정상화 시민 대토론회 · 서울시청</text>
+
+  <!-- box 1 -->
+  <rect x="40" y="88" width="330" height="112" rx="10" fill="#fff7ed" stroke="#F97316" stroke-width="1.5"/>
+  <text x="60" y="120" font-size="16" font-weight="700" fill="#c2410c">① 세제 중과의 실효성</text>
+  <text x="60" y="148" font-size="13" fill="#444">보유세·양도세를 올리면</text>
+  <text x="60" y="170" font-size="13" fill="#444">주택난·집값이 실제로 잡히나</text>
+  <text x="60" y="190" font-size="12" fill="#999">→ 고가주택 중과 ≠ 공급 확대</text>
+
+  <!-- box 2 -->
+  <rect x="390" y="88" width="330" height="112" rx="10" fill="#fff7ed" stroke="#F97316" stroke-width="1.5"/>
+  <text x="410" y="120" font-size="16" font-weight="700" fill="#c2410c">② 전월세 전가 우려</text>
+  <text x="410" y="148" font-size="13" fill="#444">보유 부담이 커지면</text>
+  <text x="410" y="170" font-size="13" fill="#444">전세보증금·월세로 옮겨갈까</text>
+  <text x="410" y="190" font-size="12" fill="#999">→ 세입자 부담 전가 가능성</text>
+
+  <!-- box 3 -->
+  <rect x="40" y="216" width="330" height="112" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+  <text x="60" y="248" font-size="16" font-weight="700" fill="#334155">③ 정비사업 공급 효과</text>
+  <text x="60" y="276" font-size="13" fill="#444">재건축·재개발은 신규 주택을</text>
+  <text x="60" y="298" font-size="13" fill="#444">늘리는 '대동맥'인가</text>
+  <text x="60" y="318" font-size="12" fill="#999">→ 이주수요 관리 vs 공급 확대</text>
+
+  <!-- box 4 -->
+  <rect x="390" y="216" width="330" height="112" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+  <text x="410" y="248" font-size="16" font-weight="700" fill="#334155">④ 민간임대 인센티브</text>
+  <text x="410" y="276" font-size="13" fill="#444">전월세 공급을 떠받치려면</text>
+  <text x="410" y="298" font-size="13" fill="#444">세제·금융을 어떻게 설계할까</text>
+  <text x="410" y="318" font-size="12" fill="#999">→ 규제 vs 공급 유인</text>
+
+  <text x="380" y="350" text-anchor="middle" font-size="11" fill="#aaa">정리: 옳은경제 · 토론회에서 오간 논점을 쟁점별로 재구성한 도식이에요</text>
+</svg>
