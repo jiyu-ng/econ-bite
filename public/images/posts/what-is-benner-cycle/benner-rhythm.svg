@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="360" viewBox="0 0 760 360" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <rect width="760" height="360" fill="#ffffff"/>
+  <text x="40" y="36" font-size="20" font-weight="700" fill="#1a1a1a">배너 사이클이 그리는 '대략의 리듬'</text>
+  <text x="40" y="58" font-size="13" fill="#6b7280">저점에서 사고 고점에서 판다는 주기론의 한 구간 (개념 도식)</text>
+
+  <!-- baseline -->
+  <line x1="70" y1="250" x2="700" y2="250" stroke="#e5e7eb" stroke-width="1.5"/>
+
+  <!-- rhythm curve: 2023 저점 -> 2026 고점 -> 2032 저점 -->
+  <path d="M100,250 Q250,255 300,250 T380,150 Q430,95 480,150 T620,250"
+        fill="none" stroke="#F97316" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- 저점 2023 -->
+  <circle cx="120" cy="250" r="7" fill="#2563eb"/>
+  <text x="120" y="278" font-size="13" font-weight="700" fill="#1d4ed8" text-anchor="middle">2023</text>
+  <text x="120" y="296" font-size="11" fill="#64748b" text-anchor="middle">저점(매수설)</text>
+
+  <!-- 고점 2026 -->
+  <circle cx="430" cy="95" r="8" fill="#dc2626"/>
+  <text x="430" y="80" font-size="14" font-weight="700" fill="#b91c1c" text-anchor="middle">2026 고점(매도설)</text>
+
+  <!-- 저점 2032 -->
+  <circle cx="610" cy="250" r="7" fill="#2563eb"/>
+  <text x="610" y="278" font-size="13" font-weight="700" fill="#1d4ed8" text-anchor="middle">2032</text>
+  <text x="610" y="296" font-size="11" fill="#64748b" text-anchor="middle">저점(약세 끝?)</text>
+
+  <!-- caveat box -->
+  <rect x="70" y="316" width="630" height="34" rx="8" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="385" y="338" font-size="12.5" font-weight="700" fill="#c2410c" text-anchor="middle">⚠️ 실제 차트를 단순화한 개념 도식이에요 — 특정 매매 시점을 콕 집는 신호가 아닙니다</text>
+</svg>
