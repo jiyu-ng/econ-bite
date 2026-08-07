@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <rect width="720" height="420" fill="#ffffff"/>
+  <text x="40" y="36" font-size="20" font-weight="700" fill="#1a1a1a">달리오의 경고 — '빅 사이클' 후기에 겹치는 3대 리스크</text>
+  <text x="40" y="58" font-size="13" fill="#6b7280">셋이 동시에 맞물릴 때가 역사적으로 가장 위험한 국면</text>
+
+  <!-- connecting lines -->
+  <line x1="360" y1="235" x2="360" y2="130" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="300" y1="255" x2="185" y2="325" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="420" y1="255" x2="535" y2="325" stroke="#cbd5e1" stroke-width="2"/>
+
+  <!-- center -->
+  <circle cx="360" cy="235" r="62" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="360" y="228" font-size="15" font-weight="700" fill="#b91c1c" text-anchor="middle">빅 사이클</text>
+  <text x="360" y="250" font-size="15" font-weight="700" fill="#b91c1c" text-anchor="middle">후기(쇠퇴)</text>
+
+  <!-- risk 1: 부채 -->
+  <rect x="235" y="82" width="250" height="48" rx="10" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="360" y="103" font-size="15" font-weight="700" fill="#1d4ed8" text-anchor="middle">① 과잉 부채</text>
+  <text x="360" y="122" font-size="12" fill="#475569" text-anchor="middle">빚이 쌓여 이자·상환 부담이 한계에</text>
+
+  <!-- risk 2: 정치갈등 -->
+  <rect x="40" y="330" width="270" height="48" rx="10" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="175" y="351" font-size="15" font-weight="700" fill="#15803d" text-anchor="middle">② 내부 정치 갈등</text>
+  <text x="175" y="370" font-size="12" fill="#475569" text-anchor="middle">빈부격차 → 좌우 극단 대립</text>
+
+  <!-- risk 3: 지정학 -->
+  <rect x="410" y="330" width="270" height="48" rx="10" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="545" y="351" font-size="15" font-weight="700" fill="#c2410c" text-anchor="middle">③ 지정학 재편</text>
+  <text x="545" y="370" font-size="12" fill="#475569" text-anchor="middle">미·중 힘 이동, 세계질서 교체기</text>
+
+  <text x="360" y="404" font-size="11" fill="#aaa" text-anchor="middle">개념 도식 · 레이 달리오의 '빅 사이클' 프레임 정리 · 옳은경제</text>
+</svg>
