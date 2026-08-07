@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="400" viewBox="0 0 760 400" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <rect width="760" height="400" fill="#ffffff"/>
+  <text x="40" y="34" font-size="20" font-weight="700" fill="#1a1a1a">배너 사이클이 그리는 고점·저점 리듬</text>
+  <text x="40" y="56" font-size="13" fill="#6b7280">과거 큰 고비를 얼추 짚었다는 그 차트 — 다음 고점은 2026년을 가리켜요</text>
+
+  <!-- baseline -->
+  <line x1="70" y1="300" x2="710" y2="300" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="70" y="322" font-size="11" fill="#9ca3af" text-anchor="middle">1920</text>
+  <text x="390" y="322" font-size="11" fill="#9ca3af" text-anchor="middle">1975</text>
+  <text x="700" y="322" font-size="11" fill="#9ca3af" text-anchor="middle">2035</text>
+
+  <!-- cycle wave (지그재그: 배너 차트 특유의 삼각파) -->
+  <polyline points="80,240 128,150 150,270 328,160 414,262 511,150 527,258 554,272 592,195 619,266 651,120 684,272 700,266"
+            fill="none" stroke="#F97316" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- 과거 적중 마킹 -->
+  <circle cx="128" cy="150" r="6" fill="#64748b"/>
+  <text x="128" y="140" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">1929</text>
+  <text x="128" y="128" font-size="10" fill="#94a3b8" text-anchor="middle">대공황</text>
+
+  <circle cx="511" cy="150" r="6" fill="#64748b"/>
+  <text x="511" y="140" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">2000</text>
+  <text x="511" y="128" font-size="10" fill="#94a3b8" text-anchor="middle">닷컴버블</text>
+
+  <circle cx="554" cy="272" r="6" fill="#64748b"/>
+  <text x="548" y="292" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">2008</text>
+
+  <circle cx="619" cy="266" r="6" fill="#64748b"/>
+  <text x="613" y="286" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">2020</text>
+
+  <!-- 2026 고점 강조 -->
+  <circle cx="651" cy="120" r="8" fill="#dc2626"/>
+  <text x="651" y="108" font-size="14" font-weight="700" fill="#b91c1c" text-anchor="middle">2026 고점?</text>
+
+  <text x="390" y="376" font-size="11.5" fill="#c2410c" text-anchor="middle" font-weight="700">⚠️ 배너의 예측 연도를 토대로 옳은경제가 재구성한 개념 도식 — 특정 매매 신호가 아닙니다</text>
+</svg>
