@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <rect width="720" height="420" fill="#ffffff"/>
+  <text x="40" y="34" font-size="20" font-weight="700" fill="#1a1a1a">지급준비율이 은행의 '돈 불리기'를 조절해요</text>
+  <text x="40" y="56" font-size="13" fill="#6b7280">지준율 10% 예시 — 예금의 10%만 남기고 나머지를 대출, 그게 또 예금이 돼요</text>
+
+  <defs>
+    <marker id="rcArrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- 단계 3줄 -->
+  <!-- row1 -->
+  <rect x="60" y="86" width="150" height="46" rx="9" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="135" y="108" font-size="13" fill="#1e3a8a" text-anchor="middle">예금</text>
+  <text x="135" y="125" font-size="14" font-weight="700" fill="#1d4ed8" text-anchor="middle">100원</text>
+  <rect x="270" y="86" width="150" height="46" rx="9" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="345" y="108" font-size="12" fill="#7c2d12" text-anchor="middle">지급준비금(남김)</text>
+  <text x="345" y="125" font-size="14" font-weight="700" fill="#c2410c" text-anchor="middle">10원</text>
+  <rect x="490" y="86" width="170" height="46" rx="9" fill="#ecfdf5" stroke="#a7f3d0"/>
+  <text x="575" y="108" font-size="12" fill="#065f46" text-anchor="middle">대출(풀림)</text>
+  <text x="575" y="125" font-size="14" font-weight="700" fill="#047857" text-anchor="middle">90원</text>
+  <line x1="210" y1="109" x2="268" y2="109" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#rcArrow)"/>
+  <line x1="420" y1="109" x2="488" y2="109" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#rcArrow)"/>
+
+  <!-- 대출90 -> 예금90 -->
+  <path d="M575,132 V158 H135 V180" fill="none" stroke="#cbd5e1" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#rcArrow)"/>
+
+  <!-- row2 -->
+  <rect x="60" y="184" width="150" height="46" rx="9" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="135" y="206" font-size="13" fill="#1e3a8a" text-anchor="middle">예금</text>
+  <text x="135" y="223" font-size="14" font-weight="700" fill="#1d4ed8" text-anchor="middle">90원</text>
+  <rect x="270" y="184" width="150" height="46" rx="9" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="345" y="212" font-size="13" font-weight="700" fill="#c2410c" text-anchor="middle">9원 남김</text>
+  <rect x="490" y="184" width="170" height="46" rx="9" fill="#ecfdf5" stroke="#a7f3d0"/>
+  <text x="575" y="212" font-size="13" font-weight="700" fill="#047857" text-anchor="middle">81원 대출</text>
+  <line x1="210" y1="207" x2="268" y2="207" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#rcArrow)"/>
+  <line x1="420" y1="207" x2="488" y2="207" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#rcArrow)"/>
+  <path d="M575,230 V256 H135 V278" fill="none" stroke="#cbd5e1" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#rcArrow)"/>
+
+  <!-- row3 -->
+  <rect x="60" y="282" width="150" height="46" rx="9" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="135" y="310" font-size="14" font-weight="700" fill="#1d4ed8" text-anchor="middle">예금 81원…</text>
+  <text x="300" y="311" font-size="14" fill="#475569">↔ 이 과정이 반복되며 통화량이 불어나요</text>
+
+  <!-- 결론 띠 -->
+  <rect x="60" y="350" width="600" height="46" rx="10" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="360" y="379" font-size="14" font-weight="700" fill="#334155" text-anchor="middle">지준율이 높을수록 '남기는 돈'↑ → 대출·통화량↓ / 낮을수록 그 반대</text>
+</svg>
