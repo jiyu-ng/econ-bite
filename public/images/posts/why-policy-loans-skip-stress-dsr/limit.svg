@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="380" viewBox="0 0 680 380" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <rect width="680" height="380" fill="#ffffff"/>
+  <text x="340" y="38" text-anchor="middle" font-size="19" font-weight="700" fill="#1a1a1a">같은 소득인데 대출 가능액 1억 원 넘게 줄어</text>
+  <text x="340" y="60" text-anchor="middle" font-size="13" fill="#888">연소득 1억 원 · 변동금리 기준 시뮬레이션</text>
+
+  <!-- axis baseline -->
+  <line x1="120" y1="300" x2="600" y2="300" stroke="#333" stroke-width="1.5"/>
+
+  <!-- scale: 6.58억 -> 210px. px/억 = 210/6.58 = 31.9 -->
+  <!-- bar A 6.58 -> 210 -> y=90 -->
+  <rect x="180" y="90" width="120" height="210" fill="#94a3b8"/>
+  <text x="240" y="80" text-anchor="middle" font-size="16" font-weight="700" fill="#475569">6억 5,800만</text>
+  <text x="240" y="322" text-anchor="middle" font-size="14" fill="#444">스트레스 DSR</text>
+  <text x="240" y="341" text-anchor="middle" font-size="14" fill="#444">도입 전</text>
+
+  <!-- bar B 5.56 -> 177 -> y=123 -->
+  <rect x="410" y="123" width="120" height="177" fill="#F97316"/>
+  <text x="470" y="113" text-anchor="middle" font-size="16" font-weight="700" fill="#c2410c">5억 5,600만</text>
+  <text x="470" y="322" text-anchor="middle" font-size="14" fill="#444">3단계 시행 후</text>
+  <text x="470" y="341" text-anchor="middle" font-size="14" fill="#444">(2025.7~)</text>
+
+  <!-- drop arrow annotation -->
+  <text x="345" y="180" text-anchor="middle" font-size="15" font-weight="700" fill="#c0392b">약 −1억 200만</text>
+  <text x="345" y="360" text-anchor="middle" font-size="10" fill="#aaa">단위: 원 · 기준: 스트레스 DSR 도입 전 대비 3단계 적용 후 · 출처: 뱅크샐러드 시뮬레이션(개인 조건별 상이)</text>
+</svg>
