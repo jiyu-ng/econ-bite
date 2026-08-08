@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="360" viewBox="0 0 740 360" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <rect width="740" height="360" fill="#ffffff"/>
+  <text x="40" y="34" font-size="20" font-weight="700" fill="#1a1a1a">위기가 오면 돈은 '안전한 곳'으로 몰려요</text>
+  <text x="40" y="56" font-size="13" fill="#6b7280">불안할수록 위험자산에서 안전자산으로 자금이 이동해요 (안전자산 선호 현상)</text>
+
+  <!-- 위험자산 박스 -->
+  <rect x="48" y="92" width="270" height="210" rx="14" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+  <text x="183" y="122" font-size="17" font-weight="700" fill="#b91c1c" text-anchor="middle">위험자산</text>
+  <text x="183" y="144" font-size="12.5" fill="#dc2626" text-anchor="middle">기대수익 높지만 변동성 큼</text>
+  <text x="72" y="182" font-size="14" fill="#7f1d1d">· 주식(특히 성장·신흥국)</text>
+  <text x="72" y="212" font-size="14" fill="#7f1d1d">· 회사채·고수익 채권</text>
+  <text x="72" y="242" font-size="14" fill="#7f1d1d">· 가상자산 등</text>
+  <text x="183" y="284" font-size="13" font-weight="700" fill="#b91c1c" text-anchor="middle">불안하면 → 팔린다</text>
+
+  <!-- 화살표 -->
+  <defs><marker id="fs" markerWidth="11" markerHeight="11" refX="7" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 Z" fill="#f59e0b"/></marker></defs>
+  <line x1="322" y1="197" x2="418" y2="197" stroke="#f59e0b" stroke-width="3.5" marker-end="url(#fs)"/>
+  <text x="370" y="185" font-size="12" font-weight="700" fill="#d97706" text-anchor="middle">위기 시</text>
+
+  <!-- 안전자산 박스 -->
+  <rect x="422" y="92" width="270" height="210" rx="14" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1.5"/>
+  <text x="557" y="122" font-size="17" font-weight="700" fill="#047857" text-anchor="middle">안전자산</text>
+  <text x="557" y="144" font-size="12.5" fill="#059669" text-anchor="middle">가치 안정·잘 팔림·신뢰 높음</text>
+  <text x="446" y="182" font-size="14" fill="#065f46">· 금(金)</text>
+  <text x="446" y="212" font-size="14" fill="#065f46">· 미국 달러·미 국채</text>
+  <text x="446" y="242" font-size="14" fill="#065f46">· 엔·스위스프랑 등</text>
+  <text x="557" y="284" font-size="13" font-weight="700" fill="#047857" text-anchor="middle">불안하면 → 몰린다</text>
+
+  <text x="370" y="340" font-size="11.5" fill="#9ca3af" text-anchor="middle">개념 도식 · 특정 자산의 매수·매도를 권유하지 않아요 · 옳은경제 정리</text>
+</svg>
