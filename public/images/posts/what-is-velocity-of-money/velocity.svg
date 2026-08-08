@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="380" viewBox="0 0 740 380" font-family="'Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <rect width="740" height="380" fill="#ffffff"/>
+  <text x="40" y="34" font-size="20" font-weight="700" fill="#1a1a1a">돈의 양이 같아도 '도는 속도'가 다르면 경제 온도가 달라요</text>
+  <text x="40" y="56" font-size="13" fill="#6b7280">같은 1만 원이 한 달에 몇 번 쓰이느냐 = 화폐유통속도(V)</text>
+
+  <!-- 왼쪽: 느린 돈 -->
+  <rect x="48" y="82" width="300" height="250" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="198" y="112" font-size="17" font-weight="700" fill="#334155" text-anchor="middle">느린 돈 (V 낮음)</text>
+  <text x="198" y="134" font-size="12.5" fill="#64748b" text-anchor="middle">불안하니 안 쓰고 쟁여둠</text>
+  <circle cx="120" cy="190" r="26" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="120" y="195" font-size="12" font-weight="700" fill="#c2410c" text-anchor="middle">1만원</text>
+  <line x1="150" y1="190" x2="230" y2="190" stroke="#94a3b8" stroke-width="2"/>
+  <text x="270" y="195" font-size="13" fill="#475569">→ 한 번 쓰고 멈춤</text>
+  <text x="198" y="300" font-size="14" font-weight="700" fill="#475569" text-anchor="middle">거래 적음 → 경기 냉랭</text>
+
+  <!-- 오른쪽: 빠른 돈 -->
+  <rect x="392" y="82" width="300" height="250" rx="14" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.5"/>
+  <text x="542" y="112" font-size="17" font-weight="700" fill="#047857" text-anchor="middle">빠른 돈 (V 높음)</text>
+  <text x="542" y="134" font-size="12.5" fill="#059669" text-anchor="middle">여러 손을 거치며 활발히</text>
+  <circle cx="470" cy="185" r="22" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="470" y="190" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">1만원</text>
+  <path d="M492,178 Q542,150 590,178" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#va)"/>
+  <path d="M590,196 Q542,224 494,200" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#va)"/>
+  <circle cx="612" cy="185" r="22" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="612" y="190" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">1만원</text>
+  <defs><marker id="va" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#10b981"/></marker></defs>
+  <text x="542" y="300" font-size="14" font-weight="700" fill="#047857" text-anchor="middle">거래 많음 → 경기 활발</text>
+
+  <text x="370" y="360" font-size="12.5" font-weight="700" fill="#334155" text-anchor="middle">교환방정식: 통화량(M) × 유통속도(V) = 물가(P) × 실질생산(Y)</text>
+</svg>
